@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="repair_quotation_report_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.basic_layout">
+                        <div class="page">
+                            <table style="margin: 0px; font-size: 11px;" class="table table-borderless">
+                                <tr>
+                                    <td style="width: 15%;">
+                                    </td>
+                                    <td style="width: 70%; vertical-align: top; text-align: center;">
+                                        <h5 style="font-weight: bold; margin: 0px;">
+                                            Repair Quotation Report
+                                        </h5>
+                                        <h6 style="font-weight: bold; margin: 0px;">
+                                            <span t-field="o.company_id.name"/>
+                                        </h6>
+                                        <span>
+                                            <span t-field="o.company_id.street"/>&#160;,
+                                            <span t-field="o.company_id.city"/>&#160;,
+                                            <span t-field="o.company_id.zip"/>&#160;|&#160;
+                                            <span t-field="o.company_id.phone"/>&#160;|&#160;<span
+                                                t-field="o.company_id.email"/>
+                                        </span>
+                                        <br/>
+                                        <span>
+                                            <span t-field="o.company_id.website"/>
+                                        </span>
+                                    </td>
+                                    <td style="width: 15%; vertical-align: top;">
+                                        <span t-if="o.company_id.logo">
+                                            <img t-att-src="image_data_uri(o.company_id.logo)"
+                                                 style="max-width: 130px; max-height: 80px; object-fit: cover;"
+                                                 alt="Company Logo"/>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div style="border: 1px solid black; margin-bottom: 5px;"/>
+                            <table style="margin: 10px 0px 5px 0px; font-size: 13px;" class="table table-borderless">
+                                <tr>
+                                    <td style="padding: 0px; width: 9%; vertical-align: middle;">
+                                        <strong>
+                                            Customer:
+                                        </strong>
+                                    </td>
+                                    <td style="padding: 0px; border-bottom: 1px solid black; width: 40%; vertical-align: middle;">
+                                        <span t-field="o.customer_id"/>
+                                    </td>
+                                    <td style="padding: 0px; width: 12%; vertical-align: middle;">
+                                        <strong>
+                                            Brand/Model:
+                                        </strong>
+                                    </td>
+                                    <td style="padding: 0px; border-bottom: 1px solid black; width: 39%; vertical-align: middle;">
+                                        <span t-field="o.vehicle_brand_id"/>&#160;/
+                                        <span t-field="o.vehicle_model_id"/>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table style="margin: 5px 0px 5px 0px; font-size: 13px;" class="table table-borderless">
+                                <tr>
+                                    <td style="padding: 0px; width: 14%;vertical-align: middle;">
+                                        <strong>
+                                            Inspection Date:
+                                        </strong>
+                                    </td>
+                                    <td style="padding: 0px; border-bottom: 1px solid black; width: 16%; vertical-align: middle;">
+                                        <span t-field="o.inspection_date"/>
+                                    </td>
+                                    <td style="padding: 0px; width: 5%; vertical-align: middle;">
+                                        <strong>
+                                            VIN:
+                                        </strong>
+                                    </td>
+                                    <td style="padding: 0px; border-bottom: 1px solid black; width: 25%; vertical-align: middle;">
+                                        <span t-field="o.vin_no"/>
+                                    </td>
+                                    <td style="padding: 0px; width: 14%; vertical-align: middle;">
+                                        <strong>
+                                            Registration No.:
+                                        </strong>
+                                    </td>
+                                    <td style="padding: 0px; border-bottom: 1px solid black; width: 26%; vertical-align: middle;">
+                                        <span t-field="o.registration_no"/>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table style="margin: 5px 0px 5px 0px; font-size: 13px;" class="table table-borderless">
+                                <tr>
+                                    <td style="padding: 0px; width: 12%; vertical-align: middle;">
+                                        <strong>
+                                            Repair Order:
+                                        </strong>
+                                    </td>
+                                    <td style="padding: 0px; border-bottom: 1px solid black; width: 38%; vertical-align: middle;">
+                                        <span t-field="o.repair_job_card_id"/>
+                                    </td>
+                                    <td style="padding: 0px; width: 14%; vertical-align: middle;">
+                                        <strong>
+                                            Service Advisor:
+                                        </strong>
+                                    </td>
+                                    <td style="padding: 0px; border-bottom: 1px solid black; width: 36%; vertical-align: middle;">
+                                        <span t-field="o.responsible_id"/>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div style="border: 1px solid black; margin-top: 10px; margin-bottom: 10px;"/>
+
+                            <!-- Vehicle Spare Parts Table -->
+                            <h6 style="padding: 10px 0px 10px 0px; background-color: #e9ecef; margin-bottom: 5px; border-radius: 5px; font-size: 14px;"
+                                t-if="o.vehicle_spare_part_ids and o.inspect_type == 'inspection_and_repair'">
+                                <i class="fa fa-gears me-1 ms-2" aria-hidden="true"/>
+                                Vehicle Spare Parts
+                            </h6>
+                            <table class="table table-borderless table-sm" style="font-size: 12px;"
+                                   t-if="o.vehicle_spare_part_ids and o.inspect_type == 'inspection_and_repair'">
+                                <tr style="border-bottom: 2px solid #ccc; font-size: 13px;">
+                                    <td style="padding: 2px; width: 55%;">
+                                        <strong>Spare Part</strong>
+                                    </td>
+                                    <td style="padding: 2px; text-align: right; width: 15%;">
+                                        <strong>Quantity</strong>
+                                    </td>
+                                    <td style="padding: 2px; text-align: right; width: 15%;">
+                                        <strong>Unit Price</strong>
+                                    </td>
+                                    <td style="padding: 2px; text-align: right; width: 15%;">
+                                        <strong>Sub Total</strong>
+                                    </td>
+                                </tr>
+                                <tr t-foreach="o.vehicle_spare_part_ids" t-as="part"
+                                    style="border-bottom: 1px solid #cdc2c2;">
+                                    <td style="padding: 2px; width: 55%;">
+                                        <span t-field="part.product_id"/>
+                                    </td>
+                                    <td style="padding: 2px; text-align: right; width: 15%;">
+                                        <span t-field="part.qty"/>
+                                    </td>
+                                    <td style="padding: 2px; text-align: right; width: 15%;">
+                                        <span t-field="part.unit_price"/>
+                                    </td>
+                                    <td style="padding: 2px; text-align: right; width: 15%;">
+                                        <span t-field="part.sub_total"/>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Vehicle Services Table -->
+                            <h6 style="padding: 10px 0px 10px 0px; background-color: #e9ecef; margin-bottom: 5px; border-radius: 5px; font-size: 14px;"
+                                t-if="o.inspection_repair_team_ids and o.inspect_type == 'inspection_and_repair'">
+                                <i class="fa fa-wrench me-1 ms-2" aria-hidden="true"/>
+                                Vehicle Services
+                            </h6>
+                            <table class="table table-borderless table-sm" style="font-size: 12px;"
+                                   t-if="o.inspection_repair_team_ids and o.inspect_type == 'inspection_and_repair'">
+                                <tr style="border-bottom: 2px solid #ccc; font-size: 13px;">
+                                    <td style="padding: 2px; width: 40%;">
+                                        <strong>Service</strong>
+                                    </td>
+                                    <td style="padding: 2px; width: 20%;">
+                                        <strong>Start Date</strong>
+                                    </td>
+                                    <td style="padding: 2px; width: 20%;">
+                                        <strong>End Date</strong>
+                                    </td>
+                                    <td style="padding: 2px; text-align: right; width: 20%;">
+                                        <strong>Service Charges</strong>
+                                    </td>
+                                </tr>
+                                <tr t-foreach="o.inspection_repair_team_ids" t-as="service"
+                                    style="border-bottom: 1px solid #cdc2c2;">
+                                    <td style="padding: 2px; width: 40%;">
+                                        <span t-field="service.vehicle_service_id"/>
+                                    </td>
+                                    <td style="padding: 2px; width: 20%;">
+                                        <span t-field="service.start_date"/>
+                                    </td>
+                                    <td style="padding: 2px; width: 20%;">
+                                        <span t-field="service.end_date"/>
+                                    </td>
+                                    <td style="padding: 2px; text-align: right; width: 20%;">
+                                        <span t-field="service.service_charge"/>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!--Total Estimations-->
+                            <div class="row">
+                                <div class="col-8">
+                                </div>
+                                <div class="col-4" style="text-align: right;">
+                                    <h6>
+                                        Total Estimations
+                                        <hr style="margin-top: 1px;"/>
+                                    </h6>
+                                    Inspection Charges:
+                                    <span t-field="o.inspection_charge"/>
+                                    <br/>
+                                    Spare Parts Charges:
+                                    <span t-field="o.part_price"/>
+                                    <br/>
+                                    Service Charges:
+                                    <span t-field="o.service_charge"/>
+                                    <br/>
+                                    <hr style="margin-top: 1px;"/>
+                                    <strong>
+                                        Total:
+                                    </strong>
+                                    <span t-field="o.sub_total"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <record id="action_repair_quotation_report_template" model="ir.actions.report">
+            <field name="name">Repair Quotation Report</field>
+            <field name="model">inspection.job.card</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">tk_advance_vehicle_repair.repair_quotation_report_template</field>
+            <field name="report_file">tk_advance_vehicle_repair.repair_quotation_report_template</field>
+            <field name="binding_model_id" ref="model_inspection_job_card"/>
+            <field name="paperformat_id" ref="inspection_report_paper_format"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

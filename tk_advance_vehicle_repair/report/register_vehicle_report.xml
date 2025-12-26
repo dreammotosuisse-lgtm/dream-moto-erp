@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="register_vehicle_report_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="register">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h5 style="padding: 5px; font-weight: bold; border-bottom: 2px solid #ccc; text-align: center;">
+                            Register Vehicle Details
+                        </h5>
+
+                        <!-- Vehicle Details Table -->
+                        <h6 style="padding: 10px 0px 10px 0px; background-color: #e9ecef; margin-bottom: 5px; border-radius: 5px; font-size: 14px;">
+                            <i class="fa fa-car me-1 ms-2" aria-hidden="true"/>
+                            Vehicle Details
+                        </h6>
+                        <table class="table table-borderless" style="font-size: 13px;">
+                            <tr>
+                                <td style="width: 49%; padding: 0;">
+                                    <table class="table table-borderless mb-0">
+                                        <tr>
+                                            <td style="width: 28%;" class="p-1">
+                                                <strong>Customer</strong>
+                                            </td>
+                                            <td style="width: 2%;" class="p-1">:</td>
+                                            <td style="width: 70%;" class="p-1">
+                                                <span t-field="register.customer_id.name"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1">
+                                                <strong>Brand</strong>
+                                            </td>
+                                            <td class="p-1">:</td>
+                                            <td class="p-1">
+                                                <span t-field="register.vehicle_brand_id.name"/>
+                                            </td>
+                                        </tr>
+                                        <tr t-if="register.make">
+                                            <td class="p-1">
+                                                <strong>Make</strong>
+                                            </td>
+                                            <td class="p-1">:</td>
+                                            <td class="p-1">
+                                                <span t-field="register.make"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1">
+                                                <strong>Registration No.</strong>
+                                            </td>
+                                            <td class="p-1">:</td>
+                                            <td class="p-1">
+                                                <span t-field="register.registration_no"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1">
+                                                <strong>Fuel Type</strong>
+                                            </td>
+                                            <td class="p-1">:</td>
+                                            <td class="p-1">
+                                                <span t-field="register.vehicle_fuel_type_id.name"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+
+                                <td style="width: 2%; padding: 0;">
+                                </td>
+
+                                <td style="width: 49%; padding: 0;">
+                                    <table class="table table-borderless mb-0">
+                                        <tr>
+                                            <td class="p-1">
+                                                <strong>Model</strong>
+                                            </td>
+                                            <td class="p-1">:</td>
+                                            <td class="p-1">
+                                                <span t-field="register.vehicle_model_id.name"/>
+                                            </td>
+                                        </tr>
+                                        <tr t-if="register.manufacturing_year">
+                                            <td class="p-1">
+                                                <strong>Year</strong>
+                                            </td>
+                                            <td class="p-1">:</td>
+                                            <td class="p-1">
+                                                <span t-field="register.manufacturing_year"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1">
+                                                <strong>VIN Number</strong>
+                                            </td>
+                                            <td class="p-1">:</td>
+                                            <td class="p-1">
+                                                <span t-field="register.vin_no"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1">
+                                                <strong>Transmission Type</strong>
+                                            </td>
+                                            <td class="p-1">:</td>
+                                            <td class="p-1">
+                                                <span t-field="register.transmission_type"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- Odometer History Table -->
+                        <h6 style="padding: 10px 0px 10px 0px; background-color: #e9ecef; margin-bottom: 5px; border-radius: 5px; font-size: 14px;"
+                            t-if="register.service_history_ids">
+                            <i class="fa fa-tachometer me-1 ms-2" aria-hidden="true"/>
+                            Odometer History
+                        </h6>
+                        <table class="table table-borderless table-sm" style="font-size: 12px;"
+                               t-if="register.service_history_ids">
+                            <tr style="border-bottom: 2px solid #ccc; font-size: 13px;">
+                                <td style="padding: 2px;">
+                                    <strong>Date</strong>
+                                </td>
+                                <td style="padding: 2px;">
+                                    <strong>Last Odometer</strong>
+                                </td>
+                            </tr>
+                            <tr t-foreach="register.service_history_ids" t-as="service"
+                                style="border-bottom: 1px solid #cdc2c2;">
+                                <td style="padding: 2px;">
+                                    <span t-field="service.service_date"/>
+                                </td>
+                                <td style="padding: 2px;">
+                                    <span t-field="service.odometer" class="me-1"/>
+                                    <span t-field="service.odometer_unit"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+    <record id="action_register_vehicle_report_template" model="ir.actions.report">
+        <field name="name">Register Vehicle Report</field>
+        <field name="model">register.vehicle</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">tk_advance_vehicle_repair.register_vehicle_report_template</field>
+        <field name="report_file">tk_advance_vehicle_repair.register_vehicle_report_template</field>
+        <field name="binding_model_id" ref="model_register_vehicle"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

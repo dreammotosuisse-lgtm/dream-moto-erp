@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="vehicle_part_info_form_view" model="ir.ui.view">
+            <field name="name">vehicle.part.info.form.view</field>
+            <field name="model">vehicle.part.info</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="e.g. Cabin air filter"/>
+                            </h1>
+                            <br/>
+                            <h3>
+                                <field name="type" widget="radio" options="{'horizontal': true}"/>
+                            </h3>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="vehicle_part_info_list_view" model="ir.ui.view">
+            <field name="name">vehicle.part.info.list.view</field>
+            <field name="model">vehicle.part.info</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="type"/>
+                </list>
+            </field>
+        </record>
+        <record id="vehicle_part_info_search_view" model="ir.ui.view">
+            <field name="name">vehicle.part.info.search.view</field>
+            <field name="model">vehicle.part.info</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <group>
+                        <filter name="type" string="Type"
+                                context="{'group_by':'type'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="action_vehicle_part_info" model="ir.actions.act_window">
+            <field name="name">Vehicle Parts</field>
+            <field name="res_model">vehicle.part.info</field>
+            <field name="view_mode">list,form,search</field>
+            <field name="context">{'search_default_type': 1}</field>
+        </record>
+    </data>
+</odoo>

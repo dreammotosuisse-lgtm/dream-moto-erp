@@ -1,0 +1,1788 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="inspection_job_card_form_view" model="ir.ui.view">
+            <field name="name">inspection.job.card.form.view</field>
+            <field name="model">inspection.job.card</field>
+            <field name="arch" type="xml">
+                <form duplicate="false">
+                    <header>
+                        <field name="is_registered_vehicle" invisible="1"/>
+                        <field name="is_skip_quotation" invisible="1"/>
+                        <field name="sale_order_id" invisible="1"/>
+                        <field name="sale_order_state" invisible="1"/>
+                        <field name="stages" widget="statusbar"
+                               statusbar_visible="a_draft,b_in_progress,in_review,c_complete"/>
+                        <button string="Link Vehicle to Customer" name="action_create_vehicle_registration"
+                                class="btn btn-info" type="object"
+                                invisible="vehicle_from != 'new' or is_registered_vehicle != False or stages != 'a_draft'"/>
+
+                        <button string="In Progress" name="a_draft_to_b_in_progress" type="object" class="oe_highlight"
+                                invisible="stages != 'a_draft'" icon="fa-spinner"/>
+
+                        <button string="Create Quotation" name="create_inspection_repair_quotation" type="object"
+                                class="oe_highlight" groups="tk_advance_vehicle_repair.vehicle_repair_manager"
+                                invisible="stages in ['a_draft', 'reject', 'd_cancel'] or (inspection_charge_type != 'paid' and inspect_type != 'inspection_and_repair') or sale_order_id != False or is_skip_quotation == True"/>
+
+                        <button string="Skip Quotation" name="skip_quotation" type="object" class="btn btn-info"
+                                confirm="Are you sure you want to skip quotation?"
+                                groups="tk_advance_vehicle_repair.vehicle_repair_manager"
+                                invisible="stages in ['a_draft', 'reject', 'd_cancel', 'c_complete', 'locked'] or (inspection_charge_type != 'paid' and inspect_type != 'inspection_and_repair') or sale_order_id != False or is_skip_quotation == True"/>
+
+                        <button string="In Review" name="b_in_progress_to_in_review" type="object" icon="fa-eye"
+                                class="btn btn-warning" confirm="Are you sure you want to review the inspection?"
+                                invisible="stages not in ['b_in_progress', 'reject'] or (inspection_charge_type != 'free' or inspect_type != 'only_inspection') and sale_order_id == False"/>
+
+                        <button string="Update Quotation" name="update_inspection_repair_quotation" type="object"
+                                class="btn btn-info" groups="tk_advance_vehicle_repair.vehicle_repair_manager"
+                                invisible="sale_order_id == False or inspect_type != 'inspection_and_repair' or sale_order_state != 'draft' or stages in ['locked', 'c_complete'] or repair_job_card_id != False"/>
+
+                        <button string="Complete" name="reject_to_c_complete" type="object" class="btn btn-success"
+                                invisible="stages != 'in_review'" icon="fa-check"
+                                confirm="Are you sure you want to complete the inspection?"
+                                groups="tk_advance_vehicle_repair.vehicle_repair_manager,tk_advance_vehicle_repair.vehicle_repair_supervisor,tk_advance_vehicle_repair.vehicle_repair_receptionist"/>
+
+                        <button string="Create Invoice" name="create_inspection_job_card_invoice" type="object"
+                                class="btn btn-info" groups="tk_advance_vehicle_repair.vehicle_repair_manager"
+                                invisible="sale_order_state != 'sale' or inspection_invoices != 0"/>
+
+                        <button string="Reject" name="in_review_to_reject" type="object" class="btn btn-danger"
+                                invisible="stages != 'in_review'" icon="fa-close"
+                                confirm="Are you sure you want to reject the inspection?"
+                                groups="tk_advance_vehicle_repair.vehicle_repair_manager,tk_advance_vehicle_repair.vehicle_repair_supervisor,tk_advance_vehicle_repair.vehicle_repair_receptionist"/>
+
+                        <button string="Cancel" name="c_complete_to_d_cancel" type="object" icon="fa-ban"
+                                class="btn btn-outline-danger" invisible="stages not in ['b_in_progress', 'in_review']"
+                                confirm="Are you sure you want to cancel the inspection?"
+                                groups="tk_advance_vehicle_repair.vehicle_repair_manager"/>
+
+                        <button string="Create Repair Order" name="create_repair_job_card" type="object"
+                                class="oe_highlight"
+                                invisible="stages not in ['c_complete', 'locked'] or inspect_type != 'inspection_and_repair' or repair_job_card_id != False"/>
+
+                        <button string="Locked" name="d_cancel_to_locked" type="object" class="btn btn-warning"
+                                invisible="stages != 'c_complete'" icon="fa-lock"
+                                confirm="Are you sure you want to lock the inspection?"
+                                groups="tk_advance_vehicle_repair.vehicle_repair_manager"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box" position="inside">
+                            <button class="oe_stat_button" type="object" name="action_view_inspection_delivery"
+                                    invisible="inspection_delivery_orders == 0" icon="fa-truck">
+                                <field string="Delivery" name="inspection_delivery_orders" widget="statinfo"/>
+                            </button>
+                            <button class="oe_stat_button" type="object" name="view_inspection_invoice"
+                                    invisible="inspection_invoices == 0" icon="fa-pencil-square-o">
+                                <field string="Invoices" name="inspection_invoices" widget="statinfo"/>
+                            </button>
+                        </div>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="inspection_number"/>
+                                <br/>
+                                <h3>
+                                    <field name="vehicle_booking_id" invisible="1"/>
+                                    <field name="vehicle_from" widget="radio" options="{'horizontal': true}"
+                                           readonly="stages != 'a_draft' or vehicle_booking_id != False"/>
+                                </h3>
+                            </h1>
+                        </div>
+                        <group>
+                            <group string="Vehicle Booking Details" invisible="vehicle_booking_id == False">
+                                <field name="vehicle_booking_id" invisible="vehicle_booking_id == False"/>
+                            </group>
+                            <group string="Inspection Date">
+                                <field name="inspection_date" readonly="stages != 'a_draft'" required="1"/>
+                            </group>
+                        </group>
+                        <group string="Vehicle Details">
+                            <group>
+                                <field name="customer_id" readonly="stages != 'a_draft'"
+                                       options="{'no_create': True, 'no_create_edit': True}"/>
+                                <field name="fleet_vehicle_id" options="{'no_create': True, 'no_create_edit': True}"
+                                       invisible="vehicle_from != 'fleet_vehicle'" readonly="stages != 'a_draft'"/>
+                                <field name="register_vehicle_id" options="{'no_create': True, 'no_create_edit': True}"
+                                       invisible="vehicle_from != 'customer_vehicle'" readonly="stages != 'a_draft'"/>
+                                <field name="vehicle_brand_id" required="1" readonly="stages != 'a_draft'"
+                                       options="{'no_create': True, 'no_create_edit': True}"/>
+                                <field name="registration_no" required="1" readonly="stages != 'a_draft'"/>
+                            </group>
+                            <group>
+                                <field name="vehicle_model_id" required="1" readonly="stages != 'a_draft'"
+                                       options="{'no_create': True, 'no_create_edit': True}"/>
+                                <field name="vehicle_fuel_type_id" required="1" readonly="stages != 'a_draft'"
+                                       options="{'no_create': True, 'no_create_edit': True}"/>
+                                <field name="vin_no" readonly="stages != 'a_draft'"/>
+
+                                <label for="odometer" string="Last Odometer"/>
+                                <div class="address_format">
+                                    <field name="odometer" style="width: 25%"
+                                           readonly="stages == 'locked' or service_history_id != False or fleet_odometer_history_id != False"/>
+                                    <field name="odometer_unit" required="1"
+                                           readonly="stages == 'locked' or service_history_id != False or fleet_odometer_history_id != False"
+                                           style="width: 20%; margin-left: 15px; margin-right: 15px;"/>
+                                    <button name="%(action_update_service_info)d" type="action" style="width: auto;"
+                                            string="Update Service Info" class="btn btn-outline-info"
+                                            invisible="inspect_type == 'inspection_and_repair' or service_history_id != False or fleet_odometer_history_id != False"/>
+                                </div>
+                                <field name="service_history_id" invisible="service_history_id == False" readonly="1"
+                                       string="Service History"/>
+                                <field name="fleet_odometer_history_id" invisible="fleet_odometer_history_id == False"
+                                       readonly="1" string="Service History"/>
+
+                                <field name="transmission_type" widget="radio" options="{'horizontal': true}"
+                                       readonly="stages != 'a_draft'"/>
+                            </group>
+                        </group>
+                        <group string="Address Details">
+                            <group>
+                                <span class="o_form_label o_td_label" name="address_name">Address
+                                </span>
+                                <div class="o_address_format">
+                                    <field name="street" placeholder="Street..." class="o_address_street"
+                                           readonly="stages != 'a_draft'"/>
+                                    <field name="street2" placeholder="Street 2..." class="o_address_street"
+                                           readonly="stages != 'a_draft'"/>
+                                    <field name="city" placeholder="City" class="o_address_city"
+                                           readonly="stages != 'a_draft'"/>
+                                    <field name="state_id" class="o_address_state" placeholder="State"
+                                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                                           readonly="stages != 'a_draft'"/>
+                                    <field name="zip" placeholder="ZIP" class="o_address_zip"
+                                           readonly="stages != 'a_draft'"/>
+                                    <field name="country_id" placeholder="Country" class="o_address_country"
+                                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                                           readonly="stages != 'a_draft'"/>
+                                </div>
+                            </group>
+                            <group>
+                                <field name="phone" readonly="stages != 'a_draft'"/>
+                                <field name="email" readonly="stages != 'a_draft'"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Inspection Details">
+                                <field name="inspect_type" widget="radio" options="{'horizontal': True}"
+                                       readonly="vehicle_booking_id != False or sale_order_id != False or stages != 'a_draft'"/>
+                                <field name="inspection_charge_type" widget="radio" options="{'horizontal': True}"
+                                       readonly="sale_order_id != False or stages != 'a_draft'"/>
+                                <field name="inspection_charge" style="width: auto;" force_save="1"
+                                       readonly="sale_order_id != False or stages == 'locked'"
+                                       invisible="inspection_charge_type != 'paid'"/>
+                            </group>
+                            <group string="Inspection Report Details">
+                                <field name="inspection_report_type" widget="radio" options="{'horizontal': True}"
+                                       readonly="stages != 'a_draft'"/>
+                                <field name="inspection_type" widget="radio" options="{'horizontal': True}"
+                                       invisible="inspection_report_type != 'advanced_inspection'"
+                                       readonly="stages != 'a_draft'"/>
+                                <field name="is_scratch_report" readonly="stages == 'locked'"/>
+                                <field name="scratch_report_id" invisible="is_scratch_report == False"
+                                       options="{'no_create': True, 'no_create_edit': True}"
+                                       required="is_scratch_report == True" readonly="stages == 'locked'"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Company Details">
+                                <field name="company_id" readonly="stages != 'a_draft'"
+                                       options="{'no_create': True, 'no_create_edit': True}"/>
+                                <field name="responsible_id" widget="many2one_avatar_user" required="1"
+                                       readonly="stages != 'a_draft'"
+                                       options="{'no_create': True, 'no_create_edit': True}"/>
+                            </group>
+                            <group string="Other Details">
+                                <field name="is_vehicle_under_warranty" readonly="stages == 'locked'"/>
+                                <field name="repair_job_card_id" invisible="repair_job_card_id == False" readonly="1"/>
+                                <field name="sale_order_id" invisible="1"/>
+                                <label for="sale_order_id" string="Sale Order" invisible="sale_order_id == False"
+                                       groups="tk_advance_vehicle_repair.vehicle_repair_manager"/>
+                                <div class="address_format" groups="tk_advance_vehicle_repair.vehicle_repair_manager">
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="sale_order_id" invisible="sale_order_id == False"
+                                           readonly="1" style="width: auto;"/>
+                                    <strong>&#160;&#160;
+                                        <field name="sale_order_state" widget="badge"
+                                               decoration-info="sale_order_state == 'draft'"
+                                               decoration-danger="sale_order_state == 'sent'"
+                                               decoration-success="sale_order_state == 'sale'"
+                                               decoration-primary="sale_order_state == 'done'"
+                                               decoration-warning="sale_order_state == 'cancel'" nolabel="1"
+                                               invisible="sale_order_id == False"
+                                               style="width: auto; margin-left: 15px;"/>
+                                    </strong>
+                                    <field name="amount_total" invisible="sale_order_id == False"
+                                           groups="tk_advance_vehicle_repair.vehicle_repair_manager"
+                                           style="width: auto; margin-left: 10px;"/>
+                                </div>
+                                <field name="vehicle_booking_id" invisible="1"/>
+                            </group>
+                        </group>
+
+                        <separator string="Specific Inspection Details" name="specific_inspection_details"
+                                   invisible="inspection_type != 'specific_inspection' or inspection_report_type != 'advanced_inspection'"/>
+                        <span class="d-inline-block"
+                              invisible="inspection_type != 'specific_inspection' or inspection_report_type != 'advanced_inspection'">
+                            <field name="part_assessment" readonly="stages == 'locked'"/>
+                            <label for="part_assessment"/>
+                        </span>
+                        <span class="d-inline-block"
+                              invisible="inspection_type != 'specific_inspection' or inspection_report_type != 'advanced_inspection'">
+                            <field name="inner_body_inspection" readonly="stages == 'locked'"/>
+                            <label for="inner_body_inspection"/>
+                        </span>
+                        <span class="d-inline-block"
+                              invisible="inspection_type != 'specific_inspection' or inspection_report_type != 'advanced_inspection'">
+                            <field name="outer_body_inspection" readonly="stages == 'locked'"/>
+                            <label for="outer_body_inspection"/>
+                        </span>
+                        <span class="d-inline-block"
+                              invisible="inspection_type != 'specific_inspection' or inspection_report_type != 'advanced_inspection'">
+                            <field name="tyre_inspection" readonly="stages == 'locked'"/>
+                            <label for="tyre_inspection"/>
+                        </span>
+                        <span class="d-inline-block"
+                              invisible="inspection_type != 'specific_inspection' or inspection_report_type != 'advanced_inspection'">
+                            <field name="mechanical_condition" readonly="stages == 'locked'"/>
+                            <label for="mechanical_condition"/>
+                        </span>
+                        <span class="d-inline-block"
+                              invisible="inspection_type != 'specific_inspection' or inspection_report_type != 'advanced_inspection'">
+                            <field name="vehicle_component" readonly="stages == 'locked'"/>
+                            <label for="vehicle_component"/>
+                        </span>
+                        <span class="d-inline-block"
+                              invisible="inspection_type != 'specific_inspection' or inspection_report_type != 'advanced_inspection'">
+                            <field name="vehicle_fluid" readonly="stages == 'locked'"/>
+                            <label for="vehicle_fluid"/>
+                        </span>
+                        <br/>
+                        <div class="row" invisible="inspection_report_type == 'advanced_inspection'">
+                            <h6 style="margin: 0px;">
+                                Inspection Conditions
+                                <hr style="margin: 5px;"/>
+                            </h6>
+                            <div class="col-md-3 col-sm-12">
+                                <div style="display: flex; align-items: center;">
+                                    <div style="height: 20px; width: 20px; background-color: green; padding: 5px; margin-right: 5px;">
+                                    </div>
+                                    Checked and OK at this time
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-12">
+                                <div style="display: flex; align-items: center;">
+                                    <div style="height: 20px; width: 20px; background-color: yellow; padding: 5px; margin-right: 5px;">
+                                    </div>
+                                    Requires future attention
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-12">
+                                <div style="display: flex; align-items: center;">
+                                    <div style="height: 20px; width: 20px; background-color: red; padding: 5px; margin-right: 5px;">
+                                    </div>
+                                    Requires immediate attention
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-12">
+                                <div style="display: flex; align-items: center;">
+                                    <div style="height: 20px; width: 20px; background-color: #71639e; padding: 5px; margin-right: 5px;">
+                                    </div>
+                                    Not inspected
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-12">
+                                <div style="display: flex; align-items: center;">
+                                    <div style="height: 20px; width: 20px; background-color: #17a2b8; padding: 5px; margin-right: 5px;">
+                                    </div>
+                                    Filled
+                                </div>
+                            </div>
+                        </div>
+                        <separator string="Inspections" name="adv_vehicle_inspection_details"/>
+                        <group>
+                            <group>
+                                <field name="classic_inspection_template_id" readonly="stages == 'locked'"
+                                       options="{'no_create': True, 'no_quick_create': True}"/>
+                            </group>
+                        </group>
+                        <notebook
+                                groups="tk_advance_vehicle_repair.vehicle_repair_manager,tk_advance_vehicle_repair.vehicle_repair_supervisor,tk_advance_vehicle_repair.vehicle_repair_technician">
+                            <page name="customer_observation" string="Customer Observations">
+                                <field name="customer_observation" nolabel="1" readonly="stages == 'locked'"/>
+                            </page>
+                            <page name="spare_part_assessments" string="Parts Assessments"
+                                  invisible="inspection_report_type == 'classic_inspection' or inspection_type == 'specific_inspection' and part_assessment == False">
+                                <div>
+                                    <table width="100%" style="margin-top: 25px" class="table table-bordered">
+                                        <tr bgcolor="#f2f2f3">
+                                            <th style="padding: 5px; text-align: center;" colspan="4">Vehicle Spare
+                                                Parts Assessments
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <field name="wd"/>
+                                                <label for="wd"/>
+                                            </td>
+                                            <td>
+                                                <field name="abs"/>
+                                                <label for="abs"/>
+                                            </td>
+                                            <td>
+                                                <field name="air_conditioning"/>
+                                                <label for="air_conditioning"/>
+                                            </td>
+                                            <td>
+                                                <field name="gps"/>
+                                                <label for="gps"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <field name="luxury_sport_pkg"/>
+                                                <label for="luxury_sport_pkg"/>
+                                            </td>
+                                            <td>
+                                                <field name="running_boards"/>
+                                                <label for="running_boards"/>
+                                            </td>
+                                            <td>
+                                                <field name="awd"/>
+                                                <label for="awd"/>
+                                            </td>
+                                            <td>
+                                                <field name="bed_liner"/>
+                                                <label for="bed_liner"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <field name="moon_sun_roof"/>
+                                                <label for="moon_sun_roof"/>
+                                            </td>
+                                            <td>
+                                                <field name="auto_transmission"/>
+                                                <label for="auto_transmission"/>
+                                            </td>
+                                            <td>
+                                                <field name="camper_shell"/>
+                                                <label for="camper_shell"/>
+                                            </td>
+                                            <td>
+                                                <field name="cd_usb_bluetooth"/>
+                                                <label for="cd_usb_bluetooth"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <field name="power_locks"/>
+                                                <label for="power_locks"/>
+                                            </td>
+                                            <td>
+                                                <field name="power_seats"/>
+                                                <label for="power_seats"/>
+                                            </td>
+                                            <td>
+                                                <field name="roof_rack"/>
+                                                <label for="roof_rack"/>
+                                            </td>
+                                            <td>
+                                                <field name="power_windows"/>
+                                                <label for="power_windows"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <field name="rear_window_wiper"/>
+                                                <label for="rear_window_wiper"/>
+                                            </td>
+                                            <td>
+                                                <field name="rear_lift_gate"/>
+                                                <label for="rear_lift_gate"/>
+                                            </td>
+                                            <td>
+                                                <field name="am_fm_radio"/>
+                                                <label for="am_fm_radio"/>
+                                            </td>
+                                            <td>
+                                                <field name="sport_wheels"/>
+                                                <label for="sport_wheels"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <field name="tilt_wheel"/>
+                                                <label for="tilt_wheel"/>
+                                            </td>
+                                            <td>
+                                                <field name="towing_package"/>
+                                                <label for="towing_package"/>
+                                            </td>
+                                            <td>
+                                                <field name="wide_tires"/>
+                                                <label for="wide_tires"/>
+                                            </td>
+                                            <td>
+                                                <field name="cruise_control"/>
+                                                <label for="cruise_control"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <field name="infotainment_system"/>
+                                                <label for="infotainment_system"/>
+                                            </td>
+                                            <td>
+                                                <field name="leather_interior"/>
+                                                <label for="leather_interior"/>
+                                            </td>
+                                            <td>
+                                                <field name="cvt_transmission"/>
+                                                <label for="cvt_transmission"/>
+                                            </td>
+                                            <td>
+                                                <field name="rear_sliding_window"/>
+                                                <label for="rear_sliding_window"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <field name="stereo"/>
+                                                <label for="stereo"/>
+                                            </td>
+                                            <td>
+                                                <field name="other"/>
+                                                <label for="other"/>
+                                            </td>
+                                            <td>
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </page>
+                            <page name="inner_condition" string="Vehicle Body Inner Conditions"
+                                  invisible="inspection_report_type == 'classic_inspection' or inspection_type == 'specific_inspection' and inner_body_inspection == False">
+                                <field name="interior_item_condition_ids" nolabel="1" readonly="stages == 'locked'">
+                                    <kanban edit="false" group_create="0"
+                                            records_draggable="0"
+                                            class="o_slide_kanban"
+                                            sample="1">
+                                        <field name="id"/>
+                                        <field name="avatar"/>
+                                        <field name="vehicle_item_id"/>
+                                        <field name="interior_condition"/>
+                                        <field name="interior_condition_notes"/>
+                                        <templates>
+                                            <t t-name="card" class="flex-row">
+                                                <aside class="o_kanban_aside_full">
+                                                    <div class="o_kanban_image_fill position-relative w-100">
+                                                        <field name="avatar" class="h-100" widget="image"
+                                                               options="{'img_class': 'object-fit-cover'}"/>
+                                                    </div>
+                                                </aside>
+                                                <main>
+                                                    <div class="d-flex mb-0">
+                                                        <field name="vehicle_item_id" class="fw-bolder fs-5"/>&#160;
+                                                        <field name="interior_condition" class="fw-bolder ms-auto"
+                                                               widget="label_selection"
+                                                               options="{'classes': {'worn': 'info', 'burnt': 'warning', 'ripped': 'danger', 'good': 'success', 'other': 'primary'}}"/>
+                                                    </div>
+                                                    <hr class="mt-1 mb-1"/>
+                                                    <span>
+                                                        <field name="interior_condition_notes"/>
+                                                    </span>
+                                                </main>
+                                            </t>
+                                        </templates>
+                                    </kanban>
+                                </field>
+                            </page>
+                            <page name="vehicle_body_outer_condition" string="Vehicle Body Outer Conditions"
+                                  invisible="inspection_report_type == 'classic_inspection' or inspection_type == 'specific_inspection' and outer_body_inspection == False">
+                                <field name="vehicle_condition_line_ids" nolabel="1" readonly="stages == 'locked'">
+                                    <kanban edit="false" group_create="0"
+                                            records_draggable="0"
+                                            class="o_slide_kanban"
+                                            sample="1">
+                                        <field name="id"/>
+                                        <field name="avatar"/>
+                                        <field name="vehicle_view"/>
+                                        <field name="vehicle_condition_location_id"/>
+                                        <field name="vehicle_condition_id"/>
+                                        <field name="condition_code"/>
+                                        <templates>
+                                            <t t-name="card" class="flex-row">
+                                                <aside class="o_kanban_aside_full">
+                                                    <div class="o_kanban_image_fill position-relative w-100">
+                                                        <field name="avatar" class="h-100" widget="image"
+                                                               options="{'img_class': 'object-fit-cover'}"/>
+                                                    </div>
+                                                </aside>
+                                                <main>
+                                                    <div class="d-flex mb-0">
+                                                        <field name="vehicle_view" class="fw-bolder fs-5"/>
+                                                    </div>
+                                                    <hr class="mt-1 mb-1"/>
+                                                    <span>
+                                                        <strong>
+                                                            Location:
+                                                        </strong>
+                                                        <field name="vehicle_condition_location_id"/>
+                                                    </span>
+                                                    <span t-if="record.vehicle_condition_id.raw_value">
+                                                        <strong>
+                                                            Condition:
+                                                        </strong>
+                                                        <field name="vehicle_condition_id" class="me-1"/>
+                                                        [<field name="condition_code"/>]
+                                                    </span>
+                                                </main>
+                                            </t>
+                                        </templates>
+                                    </kanban>
+                                </field>
+                            </page>
+                            <page string="Mechanical Conditions"
+                                  invisible="inspection_report_type == 'classic_inspection' or inspection_type == 'specific_inspection' and mechanical_condition == False">
+                                <field name="mechanical_item_condition_ids" nolabel="1" readonly="stages == 'locked'">
+                                    <kanban edit="false" group_create="0"
+                                            records_draggable="0"
+                                            class="o_slide_kanban"
+                                            sample="1">
+                                        <field name="id"/>
+                                        <field name="avatar"/>
+                                        <field name="vehicle_item_id"/>
+                                        <field name="mechanical_condition"/>
+                                        <field name="mechanical_condition_notes"/>
+                                        <templates>
+                                            <t t-name="card" class="flex-row">
+                                                <aside class="o_kanban_aside_full">
+                                                    <div class="o_kanban_image_fill position-relative w-100">
+                                                        <field name="avatar" class="h-100" widget="image"
+                                                               options="{'img_class': 'object-fit-cover'}"/>
+                                                    </div>
+                                                </aside>
+                                                <main>
+                                                    <div class="d-flex mb-0">
+                                                        <field name="vehicle_item_id" class="fw-bolder fs-5"/>&#160;
+                                                        <field name="mechanical_condition" widget="label_selection"
+                                                               class="fw-bolder ms-auto"
+                                                               options="{'classes': {'poor': 'info', 'average': 'warning', 'not_working': 'danger', 'good': 'success', 'other': 'primary'}}"/>
+                                                    </div>
+                                                    <hr class="mt-1 mb-1"/>
+                                                    <span>
+                                                        <field name="mechanical_condition_notes"/>
+                                                    </span>
+                                                </main>
+                                            </t>
+                                        </templates>
+                                    </kanban>
+                                </field>
+                            </page>
+                            <page name="vehicle_components" string="Vehicle Components"
+                                  invisible="inspection_report_type == 'classic_inspection' or inspection_type == 'specific_inspection' and vehicle_component == False">
+                                <field name="vehicle_components_ids" nolabel="1" readonly="stages == 'locked'">
+                                    <kanban edit="false" group_create="0"
+                                            records_draggable="0"
+                                            class="o_slide_kanban"
+                                            sample="1">
+                                        <field name="id"/>
+                                        <field name="avatar"/>
+                                        <field name="vehicle_component_id"/>
+                                        <field name="c_vehicle_side"/>
+                                        <field name="condition"/>
+                                        <field name="remarks"/>
+                                        <templates>
+                                            <t t-name="card" class="flex-row">
+                                                <aside class="o_kanban_aside_full">
+                                                    <div class="o_kanban_image_fill position-relative w-100">
+                                                        <field name="avatar" class="h-100" widget="image"
+                                                               options="{'img_class': 'object-fit-cover'}"/>
+                                                    </div>
+                                                </aside>
+                                                <main>
+                                                    <div class="d-flex mb-0">
+                                                        <field name="vehicle_component_id" class="fw-bolder fs-5"/>
+                                                    </div>
+                                                    <hr class="mt-1 mb-1"/>
+                                                    <span>
+                                                        Vehicle Side :
+                                                        <field name="c_vehicle_side"/>
+                                                    </span>
+                                                    <span t-if="record.remarks.raw_value">
+                                                        Remarks :
+                                                        <field name="remarks"/>
+                                                    </span>
+                                                    <footer class="mt-auto d-flex justify-content-between align-items-end pt-0">
+                                                        <span class="d-flex align-items-left">
+                                                        </span>
+                                                        <span class="d-flex align-items-right">
+                                                            <field name="condition" widget="label_selection"
+                                                                   options="{'classes': {'require_future_attention': 'info', 'require_immediate_attention': 'warning', 'checked_ok': 'success'}}"/>
+                                                        </span>
+                                                    </footer>
+                                                </main>
+                                            </t>
+                                        </templates>
+                                    </kanban>
+                                </field>
+                            </page>
+                            <page name="vehicle_fluids" string="Vehicle Fluids"
+                                  invisible="inspection_report_type == 'classic_inspection' or inspection_type == 'specific_inspection' and vehicle_fluid == False">
+                                <field name="vehicle_fluids_ids" nolabel="1" readonly="stages == 'locked'">
+                                    <kanban edit="false" group_create="0"
+                                            records_draggable="0"
+                                            class="o_slide_kanban"
+                                            sample="1">
+                                        <field name="id"/>
+                                        <field name="avatar"/>
+                                        <field name="vehicle_fluid_id"/>
+                                        <field name="f_vehicle_side"/>
+                                        <field name="condition"/>
+                                        <field name="remarks"/>
+                                        <templates>
+                                            <t t-name="card" class="flex-row">
+                                                <aside class="o_kanban_aside_full">
+                                                    <div class="o_kanban_image_fill position-relative w-100">
+                                                        <field name="avatar" class="h-100" widget="image"
+                                                               options="{'img_class': 'object-fit-cover'}"/>
+                                                    </div>
+                                                </aside>
+                                                <main>
+                                                    <div class="d-flex mb-0">
+                                                        <field name="vehicle_fluid_id" class="fw-bolder fs-5"/>
+                                                    </div>
+                                                    <hr class="mt-1 mb-1"/>
+                                                    <span>
+                                                        Vehicle Side :
+                                                        <field name="f_vehicle_side"/>
+                                                    </span>
+                                                    <span t-if="record.remarks.raw_value">
+                                                        Remarks :
+                                                        <field name="remarks"/>
+                                                    </span>
+                                                    <footer class="mt-auto d-flex justify-content-between align-items-end pt-0">
+                                                        <span class="d-flex align-items-left">
+                                                        </span>
+                                                        <span class="d-flex align-items-right">
+                                                            <field name="condition" widget="label_selection"
+                                                                   options="{'classes': {'require_future_attention': 'info', 'require_immediate_attention': 'warning', 'checked_ok': 'success'}}"/>
+                                                        </span>
+                                                    </footer>
+                                                </main>
+                                            </t>
+                                        </templates>
+                                    </kanban>
+                                </field>
+                            </page>
+                            <page name="tyre_inspection" string="Tires Inspections"
+                                  invisible="inspection_report_type == 'classic_inspection' or inspection_type == 'specific_inspection' and tyre_inspection == False">
+                                <field name="tyre_inspection_ids" nolabel="1" readonly="stages == 'locked'">
+                                    <list>
+                                        <field name="tyre"/>
+                                        <field name="condition"/>
+                                        <field name="tread_wear"/>
+                                        <field name="tread_depth"/>
+                                        <field name="tyre_pressure"/>
+                                        <field name="brake_pads"/>
+                                    </list>
+                                </field>
+                            </page>
+
+                            <page name="exterior_interior" string="Exterior / Interior"
+                                  invisible="inspection_report_type == 'advanced_inspection'">
+                                <notebook>
+                                    <page name="exterior_vehicle_part" string="Exterior Parts">
+                                        <field name="exterior_vehicle_part_ids" readonly="stages == 'locked'">
+                                            <form>
+                                                <sheet>
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <group string="Part Details">
+                                                                <field name="vehicle_part_info_id" required="1"
+                                                                       placeholder="e.g. Tail Light.."
+                                                                       options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                                                                <field name="okay_for_now" invisible="1"/>
+                                                                <field name="further_attention" invisible="1"/>
+                                                                <field name="required_attention" invisible="1"/>
+                                                                <field name="not_inspected" invisible="1"/>
+                                                            </group>
+                                                            <div class="row">
+                                                                <div class="col-12">
+                                                                    <h2 class="oe-inline boolean-size">
+                                                                        <field name="okay_for_now" force_save="1"
+                                                                               class="vehicle-ok-boolean"/>
+                                                                        <field name="further_attention" force_save="1"
+                                                                               class="vehicle-further-boolean"/>
+                                                                        <field name="required_attention" force_save="1"
+                                                                               class="vehicle-required-boolean"/>
+                                                                        <field name="not_inspected" force_save="1"
+                                                                               class="vehicle-not-inspected-boolean"/>
+                                                                    </h2>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 text-center">
+                                                            <field name="avatar" nolabel="1" widget="image"
+                                                                   options='{"size": [400, 400]}' class="bg-view"/>
+                                                        </div>
+                                                    </div>
+                                                </sheet>
+                                            </form>
+                                            <list>
+                                                <field name="okay_for_now" column_invisible="1"/>
+                                                <field name="further_attention" column_invisible="1"/>
+                                                <field name="required_attention" column_invisible="1"/>
+                                                <field name="not_inspected" column_invisible="1"/>
+                                                <button name="action_inspection_button"
+                                                        type="object"
+                                                        title="Checked and OK at this time"
+                                                        icon="fa-blank"
+                                                        class="me-1 btn btn-outline-success inspection-btn-tree"
+                                                        context="{'click_from_tree': True}"
+                                                        invisible="okay_for_now"/>
+                                                <button name="action_inspection_button"
+                                                        icon="fa-check"
+                                                        title="Checked and OK at this time"
+                                                        context="{'click_from_tree': True}"
+                                                        type="object"
+                                                        class="me-1 btn btn-success inspection-btn-tree"
+                                                        invisible="not okay_for_now"/>
+                                                <button name="action_inspection_button"
+                                                        type="object"
+                                                        icon="fa-blank"
+                                                        context="{'click_from_tree': True}"
+                                                        class="me-1 btn btn-outline-warning inspection-btn-tree"
+                                                        title="Requires future attention"
+                                                        invisible="further_attention"/>
+                                                <button name="action_inspection_button"
+                                                        type="object"
+                                                        class="me-1 btn btn-warning text-white inspection-btn-tree"
+                                                        icon="fa-check"
+                                                        title="Requires future attention"
+                                                        context="{'click_from_tree': True}"
+                                                        invisible="not further_attention"/>
+                                                <button name="action_inspection_button"
+                                                        type="object"
+                                                        icon="fa-blank"
+                                                        context="{'click_from_tree': True}"
+                                                        class="me-1 btn btn-outline-danger inspection-btn-tree"
+                                                        title="Requires immediate attention"
+                                                        invisible="required_attention"/>
+                                                <button name="action_inspection_button"
+                                                        type="object" class="me-1 btn btn-danger inspection-btn-tree"
+                                                        context="{'click_from_tree': True}"
+                                                        string="" icon="fa-check" title="Requires immediate attention"
+                                                        invisible="not required_attention"/>
+                                                <button name="action_inspection_button"
+                                                        type="object"
+                                                        title="Not inspected"
+                                                        icon="fa-blank"
+                                                        class="me-1 btn btn-outline-primary inspection-btn-tree"
+                                                        context="{'click_from_tree': True}"
+                                                        invisible="not_inspected"/>
+                                                <button name="action_inspection_button"
+                                                        icon="fa-check"
+                                                        title="Not inspected"
+                                                        context="{'click_from_tree': True}"
+                                                        type="object"
+                                                        class="me-1 btn btn-primary inspection-btn-tree"
+                                                        invisible="not not_inspected"/>
+                                                <field name="vehicle_part_info_id"/>
+                                            </list>
+                                        </field>
+                                    </page>
+                                    <page name="interior_vehicle_part" string="Interior Parts">
+                                        <field name="interior_vehicle_part_ids" readonly="stages == 'locked'">
+                                            <form>
+                                                <sheet>
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <group string="Part Details">
+                                                                <field name="vehicle_part_info_id" required="1"
+                                                                       placeholder="e.g. Cabin Air Filter.."
+                                                                       options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                                                                <field name="okay_for_now" invisible="1"/>
+                                                                <field name="further_attention" invisible="1"/>
+                                                                <field name="required_attention" invisible="1"/>
+                                                                <field name="not_inspected" invisible="1"/>
+                                                            </group>
+                                                            <div class="row">
+                                                                <div class="col-12">
+                                                                    <h2 class="oe-inline boolean-size">
+                                                                        <field name="okay_for_now" force_save="1"
+                                                                               class="vehicle-ok-boolean"/>
+                                                                        <field name="further_attention" force_save="1"
+                                                                               class="vehicle-further-boolean"/>
+                                                                        <field name="required_attention" force_save="1"
+                                                                               class="vehicle-required-boolean"/>
+                                                                        <field name="not_inspected" force_save="1"
+                                                                               class="vehicle-not-inspected-boolean"/>
+                                                                    </h2>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 text-center">
+                                                            <field name="avatar" nolabel="1" widget="image"
+                                                                   options='{"size": [400, 400]}' class="bg-view"/>
+                                                        </div>
+                                                    </div>
+                                                </sheet>
+                                            </form>
+                                            <list>
+                                                <field name="okay_for_now" column_invisible="1"/>
+                                                <field name="further_attention" column_invisible="1"/>
+                                                <field name="required_attention" column_invisible="1"/>
+                                                <field name="not_inspected" column_invisible="1"/>
+                                                <button name="action_inspection_button"
+                                                        type="object"
+                                                        title="Checked and OK at this time"
+                                                        icon="fa-blank"
+                                                        class="me-1 btn btn-outline-success inspection-btn-tree"
+                                                        context="{'click_from_tree': True}"
+                                                        invisible="okay_for_now"/>
+                                                <button name="action_inspection_button"
+                                                        icon="fa-check"
+                                                        title="Checked and OK at this time"
+                                                        context="{'click_from_tree': True}"
+                                                        type="object"
+                                                        class="me-1 btn btn-success inspection-btn-tree"
+                                                        invisible="not okay_for_now"/>
+                                                <button name="action_inspection_button"
+                                                        type="object"
+                                                        icon="fa-blank"
+                                                        context="{'click_from_tree': True}"
+                                                        class="me-1 btn btn-outline-warning inspection-btn-tree"
+                                                        title="Requires future attention"
+                                                        invisible="further_attention"/>
+                                                <button name="action_inspection_button"
+                                                        type="object"
+                                                        class="me-1 btn btn-warning text-white inspection-btn-tree"
+                                                        icon="fa-check"
+                                                        title="Requires future attention"
+                                                        context="{'click_from_tree': True}"
+                                                        invisible="not further_attention"/>
+                                                <button name="action_inspection_button"
+                                                        type="object"
+                                                        icon="fa-blank"
+                                                        context="{'click_from_tree': True}"
+                                                        class="me-1 btn btn-outline-danger inspection-btn-tree"
+                                                        title="Requires immediate attention"
+                                                        invisible="required_attention"/>
+                                                <button name="action_inspection_button"
+                                                        type="object" class="me-1 btn btn-danger inspection-btn-tree"
+                                                        context="{'click_from_tree': True}"
+                                                        string="" icon="fa-check" title="Requires immediate attention"
+                                                        invisible="not required_attention"/>
+                                                <button name="action_inspection_button"
+                                                        type="object"
+                                                        title="Not inspected"
+                                                        icon="fa-blank"
+                                                        class="me-1 btn btn-outline-primary inspection-btn-tree"
+                                                        context="{'click_from_tree': True}"
+                                                        invisible="not_inspected"/>
+                                                <button name="action_inspection_button"
+                                                        icon="fa-check"
+                                                        title="Not inspected"
+                                                        context="{'click_from_tree': True}"
+                                                        type="object"
+                                                        class="me-1 btn btn-primary inspection-btn-tree"
+                                                        invisible="not not_inspected"/>
+                                                <field name="vehicle_part_info_id"/>
+                                            </list>
+                                        </field>
+                                    </page>
+                                </notebook>
+                            </page>
+                            <page name="under_hood_vehicle_part" string="Under Hood Vehicle Parts"
+                                  invisible="inspection_report_type == 'advanced_inspection'">
+                                <field name="under_hood_vehicle_part_ids" readonly="stages == 'locked'">
+                                    <form>
+                                        <sheet>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <group string="Part Details">
+                                                        <field name="vehicle_part_info_id" required="1"
+                                                               placeholder="e.g. Battery.."
+                                                               options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                                                        <field name="okay_for_now" invisible="1"/>
+                                                        <field name="further_attention" invisible="1"/>
+                                                        <field name="required_attention" invisible="1"/>
+                                                        <field name="not_inspected" invisible="1"/>
+                                                    </group>
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <h2 class="oe-inline boolean-size">
+                                                                <field name="okay_for_now" force_save="1"
+                                                                       class="vehicle-ok-boolean"/>
+                                                                <field name="further_attention" force_save="1"
+                                                                       class="vehicle-further-boolean"/>
+                                                                <field name="required_attention" force_save="1"
+                                                                       class="vehicle-required-boolean"/>
+                                                                <field name="not_inspected" force_save="1"
+                                                                       class="vehicle-not-inspected-boolean"/>
+                                                            </h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 text-center">
+                                                    <field name="avatar" nolabel="1" widget="image"
+                                                           options='{"size": [400, 400]}' class="bg-view"/>
+                                                </div>
+                                            </div>
+                                        </sheet>
+                                    </form>
+                                    <list>
+                                        <field name="okay_for_now" column_invisible="1"/>
+                                        <field name="further_attention" column_invisible="1"/>
+                                        <field name="required_attention" column_invisible="1"/>
+                                        <field name="not_inspected" column_invisible="1"/>
+                                        <button name="action_inspection_button"
+                                                type="object"
+                                                title="Checked and OK at this time"
+                                                icon="fa-blank"
+                                                class="me-1 btn btn-outline-success inspection-btn-tree"
+                                                context="{'click_from_tree': True}"
+                                                invisible="okay_for_now"/>
+                                        <button name="action_inspection_button"
+                                                icon="fa-check"
+                                                title="Checked and OK at this time"
+                                                context="{'click_from_tree': True}"
+                                                type="object"
+                                                class="me-1 btn btn-success inspection-btn-tree"
+                                                invisible="not okay_for_now"/>
+                                        <button name="action_inspection_button"
+                                                type="object"
+                                                icon="fa-blank"
+                                                context="{'click_from_tree': True}"
+                                                class="me-1 btn btn-outline-warning inspection-btn-tree"
+                                                title="Requires future attention"
+                                                invisible="further_attention"/>
+                                        <button name="action_inspection_button"
+                                                type="object"
+                                                class="me-1 btn btn-warning text-white inspection-btn-tree"
+                                                icon="fa-check"
+                                                title="Requires future attention"
+                                                context="{'click_from_tree': True}"
+                                                invisible="not further_attention"/>
+                                        <button name="action_inspection_button"
+                                                type="object"
+                                                icon="fa-blank"
+                                                context="{'click_from_tree': True}"
+                                                class="me-1 btn btn-outline-danger inspection-btn-tree"
+                                                title="Requires immediate attention"
+                                                invisible="required_attention"/>
+                                        <button name="action_inspection_button"
+                                                type="object" class="me-1 btn btn-danger inspection-btn-tree"
+                                                context="{'click_from_tree': True}"
+                                                string="" icon="fa-check" title="Requires immediate attention"
+                                                invisible="not required_attention"/>
+                                        <button name="action_inspection_button"
+                                                type="object"
+                                                title="Not inspected"
+                                                icon="fa-blank"
+                                                class="me-1 btn btn-outline-primary inspection-btn-tree"
+                                                context="{'click_from_tree': True}"
+                                                invisible="not_inspected"/>
+                                        <button name="action_inspection_button"
+                                                icon="fa-check"
+                                                title="Not inspected"
+                                                context="{'click_from_tree': True}"
+                                                type="object"
+                                                class="me-1 btn btn-primary inspection-btn-tree"
+                                                invisible="not not_inspected"/>
+                                        <field name="vehicle_part_info_id"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page name="under_vehicle_part" string="Under Vehicle Parts"
+                                  invisible="inspection_report_type == 'advanced_inspection'">
+                                <field name="under_vehicle_part_ids" readonly="stages == 'locked'">
+                                    <form>
+                                        <sheet>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <group string="Part Details">
+                                                        <field name="vehicle_part_info_id" required="1"
+                                                               placeholder="e.g. Suspension.."
+                                                               options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                                                        <field name="okay_for_now" invisible="1"/>
+                                                        <field name="further_attention" invisible="1"/>
+                                                        <field name="required_attention" invisible="1"/>
+                                                        <field name="not_inspected" invisible="1"/>
+                                                    </group>
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <h2 class="oe-inline boolean-size">
+                                                                <field name="okay_for_now" force_save="1"
+                                                                       class="vehicle-ok-boolean"/>
+                                                                <field name="further_attention" force_save="1"
+                                                                       class="vehicle-further-boolean"/>
+                                                                <field name="required_attention" force_save="1"
+                                                                       class="vehicle-required-boolean"/>
+                                                                <field name="not_inspected" force_save="1"
+                                                                       class="vehicle-not-inspected-boolean"/>
+                                                            </h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 text-center">
+                                                    <field name="avatar" nolabel="1" widget="image"
+                                                           options='{"size": [400, 400]}' class="bg-view"/>
+                                                </div>
+                                            </div>
+                                        </sheet>
+                                    </form>
+                                    <list>
+                                        <field name="okay_for_now" column_invisible="1"/>
+                                        <field name="further_attention" column_invisible="1"/>
+                                        <field name="required_attention" column_invisible="1"/>
+                                        <field name="not_inspected" column_invisible="1"/>
+                                        <button name="action_inspection_button"
+                                                type="object"
+                                                title="Checked and OK at this time"
+                                                icon="fa-blank"
+                                                class="me-1 btn btn-outline-success inspection-btn-tree"
+                                                context="{'click_from_tree': True}"
+                                                invisible="okay_for_now"/>
+                                        <button name="action_inspection_button"
+                                                icon="fa-check"
+                                                title="Checked and OK at this time"
+                                                context="{'click_from_tree': True}"
+                                                type="object"
+                                                class="me-1 btn btn-success inspection-btn-tree"
+                                                invisible="not okay_for_now"/>
+                                        <button name="action_inspection_button"
+                                                type="object"
+                                                icon="fa-blank"
+                                                context="{'click_from_tree': True}"
+                                                class="me-1 btn btn-outline-warning inspection-btn-tree"
+                                                title="Requires future attention"
+                                                invisible="further_attention"/>
+                                        <button name="action_inspection_button"
+                                                type="object"
+                                                class="me-1 btn btn-warning text-white inspection-btn-tree"
+                                                icon="fa-check"
+                                                title="Requires future attention"
+                                                context="{'click_from_tree': True}"
+                                                invisible="not further_attention"/>
+                                        <button name="action_inspection_button"
+                                                type="object"
+                                                icon="fa-blank"
+                                                context="{'click_from_tree': True}"
+                                                class="me-1 btn btn-outline-danger inspection-btn-tree"
+                                                title="Requires immediate attention"
+                                                invisible="required_attention"/>
+                                        <button name="action_inspection_button"
+                                                type="object" class="me-1 btn btn-danger inspection-btn-tree"
+                                                context="{'click_from_tree': True}"
+                                                string="" icon="fa-check" title="Requires immediate attention"
+                                                invisible="not required_attention"/>
+                                        <button name="action_inspection_button"
+                                                type="object"
+                                                title="Not inspected"
+                                                icon="fa-blank"
+                                                class="me-1 btn btn-outline-primary inspection-btn-tree"
+                                                context="{'click_from_tree': True}"
+                                                invisible="not_inspected"/>
+                                        <button name="action_inspection_button"
+                                                icon="fa-check"
+                                                title="Not inspected"
+                                                context="{'click_from_tree': True}"
+                                                type="object"
+                                                class="me-1 btn btn-primary inspection-btn-tree"
+                                                invisible="not not_inspected"/>
+                                        <field name="vehicle_part_info_id"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page name="vehicle_part_fluids" string="Vehicle Fluids"
+                                  invisible="inspection_report_type == 'advanced_inspection'">
+                                <field name="fluids_vehicle_part_ids" readonly="stages == 'locked'">
+                                    <form>
+                                        <sheet>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <group string="Part Details">
+                                                        <field name="vehicle_part_info_id" required="1"
+                                                               placeholder="e.g. Coolant.."
+                                                               options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                                                        <field name="okay_for_now" invisible="1"/>
+                                                        <field name="further_attention" invisible="1"/>
+                                                        <field name="required_attention" invisible="1"/>
+                                                        <field name="not_inspected" invisible="1"/>
+                                                        <field name="filled" invisible="1"/>
+                                                    </group>
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <h2 class="oe-inline boolean-size">
+                                                                <field name="okay_for_now" force_save="1"
+                                                                       class="vehicle-ok-boolean"/>
+                                                                <field name="further_attention" force_save="1"
+                                                                       class="vehicle-further-boolean"/>
+                                                                <field name="required_attention" force_save="1"
+                                                                       class="vehicle-required-boolean"/>
+                                                                <field name="not_inspected" force_save="1"
+                                                                       class="vehicle-not-inspected-boolean"/>
+                                                                <field name="filled" force_save="1"
+                                                                       class="vehicle-filled-boolean"/>
+                                                            </h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 text-center">
+                                                    <field name="avatar" nolabel="1" widget="image"
+                                                           options='{"size": [400, 400]}' class="bg-view"/>
+                                                </div>
+                                            </div>
+                                        </sheet>
+                                    </form>
+                                    <list>
+                                        <field name="okay_for_now" column_invisible="1"/>
+                                        <field name="further_attention" column_invisible="1"/>
+                                        <field name="required_attention" column_invisible="1"/>
+                                        <field name="not_inspected" column_invisible="1"/>
+                                        <field name="filled" column_invisible="1"/>
+                                        <button name="action_inspection_button"
+                                                type="object"
+                                                title="Checked and OK at this time"
+                                                icon="fa-blank"
+                                                class="me-1 btn btn-outline-success inspection-btn-tree"
+                                                context="{'click_from_tree': True}"
+                                                invisible="okay_for_now"/>
+                                        <button name="action_inspection_button"
+                                                icon="fa-check"
+                                                title="Checked and OK at this time"
+                                                context="{'click_from_tree': True}"
+                                                type="object"
+                                                class="me-1 btn btn-success inspection-btn-tree"
+                                                invisible="not okay_for_now"/>
+                                        <button name="action_inspection_button"
+                                                type="object"
+                                                icon="fa-blank"
+                                                context="{'click_from_tree': True}"
+                                                class="me-1 btn btn-outline-warning inspection-btn-tree"
+                                                title="Requires future attention"
+                                                invisible="further_attention"/>
+                                        <button name="action_inspection_button"
+                                                type="object"
+                                                class="me-1 btn btn-warning text-white inspection-btn-tree"
+                                                icon="fa-check"
+                                                title="Requires future attention"
+                                                context="{'click_from_tree': True}"
+                                                invisible="not further_attention"/>
+                                        <button name="action_inspection_button"
+                                                type="object"
+                                                icon="fa-blank"
+                                                context="{'click_from_tree': True}"
+                                                class="me-1 btn btn-outline-danger inspection-btn-tree"
+                                                title="Requires immediate attention"
+                                                invisible="required_attention"/>
+                                        <button name="action_inspection_button"
+                                                type="object" class="me-1 btn btn-danger inspection-btn-tree"
+                                                context="{'click_from_tree': True}"
+                                                string="" icon="fa-check" title="Requires immediate attention"
+                                                invisible="not required_attention"/>
+                                        <button name="action_inspection_button"
+                                                type="object"
+                                                title="Not inspected"
+                                                icon="fa-blank"
+                                                class="me-1 btn btn-outline-primary inspection-btn-tree"
+                                                context="{'click_from_tree': True}"
+                                                invisible="not_inspected"/>
+                                        <button name="action_inspection_button"
+                                                icon="fa-check"
+                                                title="Not inspected"
+                                                context="{'click_from_tree': True}"
+                                                type="object"
+                                                class="me-1 btn btn-primary inspection-btn-tree"
+                                                invisible="not not_inspected"/>
+                                        <button name="action_inspection_button"
+                                                type="object"
+                                                title="Filled"
+                                                icon="fa-blank"
+                                                class="me-1 btn btn-outline-info inspection-btn-tree"
+                                                context="{'click_from_tree': True}"
+                                                invisible="filled"/>
+                                        <button name="action_inspection_button"
+                                                icon="fa-check"
+                                                title="Filled"
+                                                context="{'click_from_tree': True}"
+                                                type="object"
+                                                class="me-1 btn btn-info inspection-btn-tree"
+                                                invisible="not filled"/>
+                                        <field name="vehicle_part_info_id"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page name="vehicle_tires" string="Tires Conditions"
+                                  invisible="inspection_report_type == 'advanced_inspection'">
+                                <field name="vehicle_part_tires_ids" readonly="stages == 'locked'">
+                                    <form>
+                                        <sheet>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <group string="Tire Details">
+                                                        <field name="vehicle_part_info_id" required="1"
+                                                               placeholder="e.g. Left Front Tire.."
+                                                               options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                                                        <field name="incoming" placeholder="e.g. 1-2 PSI"/>
+                                                        <field name="adjusted_to" placeholder="e.g. 3-4 PSI"/>
+                                                        <field name="tread_depth" placeholder="e.g. 10/32 to 12/32"/>
+                                                        <field name="okay_for_now" invisible="1"/>
+                                                        <field name="further_attention" invisible="1"/>
+                                                        <field name="required_attention" invisible="1"/>
+                                                        <field name="not_inspected" invisible="1"/>
+                                                    </group>
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <h2 class="oe-inline boolean-size">
+                                                                <field name="okay_for_now" force_save="1"
+                                                                       class="vehicle-ok-boolean"/>
+                                                                <field name="further_attention" force_save="1"
+                                                                       class="vehicle-further-boolean"/>
+                                                                <field name="required_attention" force_save="1"
+                                                                       class="vehicle-required-boolean"/>
+                                                                <field name="not_inspected" force_save="1"
+                                                                       class="vehicle-not-inspected-boolean"/>
+                                                            </h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 text-center">
+                                                    <field name="avatar" nolabel="1" widget="image"
+                                                           options='{"size": [400, 400]}' class="bg-view"/>
+                                                </div>
+                                            </div>
+                                        </sheet>
+                                    </form>
+                                    <list>
+                                        <field name="okay_for_now" column_invisible="1"/>
+                                        <field name="further_attention" column_invisible="1"/>
+                                        <field name="required_attention" column_invisible="1"/>
+                                        <field name="not_inspected" column_invisible="1"/>
+                                        <button name="action_inspection_button"
+                                                type="object"
+                                                title="Checked and OK at this time"
+                                                icon="fa-blank"
+                                                class="me-1 btn btn-outline-success inspection-btn-tree"
+                                                context="{'click_from_tree': True}"
+                                                invisible="okay_for_now"/>
+                                        <button name="action_inspection_button"
+                                                icon="fa-check"
+                                                title="Checked and OK at this time"
+                                                context="{'click_from_tree': True}"
+                                                type="object"
+                                                class="me-1 btn btn-success inspection-btn-tree"
+                                                invisible="not okay_for_now"/>
+                                        <button name="action_inspection_button"
+                                                type="object"
+                                                icon="fa-blank"
+                                                context="{'click_from_tree': True}"
+                                                class="me-1 btn btn-outline-warning inspection-btn-tree"
+                                                title="Requires future attention"
+                                                invisible="further_attention"/>
+                                        <button name="action_inspection_button"
+                                                type="object"
+                                                class="me-1 btn btn-warning text-white inspection-btn-tree"
+                                                icon="fa-check"
+                                                title="Requires future attention"
+                                                context="{'click_from_tree': True}"
+                                                invisible="not further_attention"/>
+                                        <button name="action_inspection_button"
+                                                type="object"
+                                                icon="fa-blank"
+                                                context="{'click_from_tree': True}"
+                                                class="me-1 btn btn-outline-danger inspection-btn-tree"
+                                                title="Requires immediate attention"
+                                                invisible="required_attention"/>
+                                        <button name="action_inspection_button"
+                                                type="object" class="me-1 btn btn-danger inspection-btn-tree"
+                                                context="{'click_from_tree': True}"
+                                                string="" icon="fa-check" title="Requires immediate attention"
+                                                invisible="not required_attention"/>
+                                        <button name="action_inspection_button"
+                                                type="object"
+                                                title="Not inspected"
+                                                icon="fa-blank"
+                                                class="me-1 btn btn-outline-primary inspection-btn-tree"
+                                                context="{'click_from_tree': True}"
+                                                invisible="not_inspected"/>
+                                        <button name="action_inspection_button"
+                                                icon="fa-check"
+                                                title="Not inspected"
+                                                context="{'click_from_tree': True}"
+                                                type="object"
+                                                class="me-1 btn btn-primary inspection-btn-tree"
+                                                invisible="not not_inspected"/>
+                                        <field name="vehicle_part_info_id"/>
+                                        <field name="incoming"/>
+                                        <field name="adjusted_to"/>
+                                        <field name="tread_depth"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page name="vehicle_brake" string="Brakes Conditions"
+                                  invisible="inspection_report_type == 'advanced_inspection'">
+                                <field name="vehicle_brake_condition_ids" readonly="stages == 'locked'">
+                                    <form>
+                                        <sheet>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <group string="Brake Details">
+                                                        <field name="vehicle_part_info_id" required="1"
+                                                               placeholder="e.g. Front Disc Brakes.."
+                                                               options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                                                        <field name="okay_for_now" invisible="1"/>
+                                                        <field name="further_attention" invisible="1"/>
+                                                        <field name="required_attention" invisible="1"/>
+                                                        <field name="not_inspected" invisible="1"/>
+                                                    </group>
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <h2 class="oe-inline boolean-size">
+                                                                <field name="okay_for_now" force_save="1"
+                                                                       class="vehicle-ok-boolean"/>
+                                                                <field name="further_attention" force_save="1"
+                                                                       class="vehicle-further-boolean"/>
+                                                                <field name="required_attention" force_save="1"
+                                                                       class="vehicle-required-boolean"/>
+                                                                <field name="not_inspected" force_save="1"
+                                                                       class="vehicle-not-inspected-boolean"/>
+                                                            </h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 text-center">
+                                                    <field name="avatar" nolabel="1" widget="image"
+                                                           options='{"size": [400, 400]}' class="bg-view"/>
+                                                </div>
+                                            </div>
+                                        </sheet>
+                                    </form>
+                                    <list>
+                                        <field name="okay_for_now" column_invisible="1"/>
+                                        <field name="further_attention" column_invisible="1"/>
+                                        <field name="required_attention" column_invisible="1"/>
+                                        <field name="not_inspected" column_invisible="1"/>
+                                        <button name="action_inspection_button"
+                                                type="object"
+                                                title="Checked and OK at this time"
+                                                icon="fa-blank"
+                                                class="me-1 btn btn-outline-success inspection-btn-tree"
+                                                context="{'click_from_tree': True}"
+                                                invisible="okay_for_now"/>
+                                        <button name="action_inspection_button"
+                                                icon="fa-check"
+                                                title="Checked and OK at this time"
+                                                context="{'click_from_tree': True}"
+                                                type="object"
+                                                class="me-1 btn btn-success inspection-btn-tree"
+                                                invisible="not okay_for_now"/>
+                                        <button name="action_inspection_button"
+                                                type="object"
+                                                icon="fa-blank"
+                                                context="{'click_from_tree': True}"
+                                                class="me-1 btn btn-outline-warning inspection-btn-tree"
+                                                title="Requires future attention"
+                                                invisible="further_attention"/>
+                                        <button name="action_inspection_button"
+                                                type="object"
+                                                class="me-1 btn btn-warning text-white inspection-btn-tree"
+                                                icon="fa-check"
+                                                title="Requires future attention"
+                                                context="{'click_from_tree': True}"
+                                                invisible="not further_attention"/>
+                                        <button name="action_inspection_button"
+                                                type="object"
+                                                icon="fa-blank"
+                                                context="{'click_from_tree': True}"
+                                                class="me-1 btn btn-outline-danger inspection-btn-tree"
+                                                title="Requires immediate attention"
+                                                invisible="required_attention"/>
+                                        <button name="action_inspection_button"
+                                                type="object" class="me-1 btn btn-danger inspection-btn-tree"
+                                                context="{'click_from_tree': True}"
+                                                string="" icon="fa-check" title="Requires immediate attention"
+                                                invisible="not required_attention"/>
+                                        <button name="action_inspection_button"
+                                                type="object"
+                                                title="Not inspected"
+                                                icon="fa-blank"
+                                                class="me-1 btn btn-outline-primary inspection-btn-tree"
+                                                context="{'click_from_tree': True}"
+                                                invisible="not_inspected"/>
+                                        <button name="action_inspection_button"
+                                                icon="fa-check"
+                                                title="Not inspected"
+                                                context="{'click_from_tree': True}"
+                                                type="object"
+                                                class="me-1 btn btn-primary inspection-btn-tree"
+                                                invisible="not not_inspected"/>
+                                        <field name="vehicle_part_info_id"/>
+                                    </list>
+                                </field>
+                            </page>
+
+                            <page name="checklist" string="Checklists">
+                                <group>
+                                    <group>
+                                        <field name="check_list_template_id" readonly="stages == 'locked'"
+                                               options="{'no_create': True, 'no_create_edit': True}"/>
+                                    </group>
+                                </group>
+                                <separator string="Checklist Template Details" name="checklist_template_details"/>
+                                <field name="inspection_checklist_ids" widget="section_and_note_one2many" nolabel="1"
+                                       readonly="stages == 'locked'">
+                                    <list editable="bottom" default_order='sequence asc'
+                                          decoration-success="is_check == True">
+                                        <control>
+                                            <create name="add_product_control" string="Add a item"/>
+                                            <create name="add_section_control" string="Add a section"
+                                                    context="{'default_display_type': 'line_section'}"/>
+                                        </control>
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="is_check"/>
+                                        <field name="name" widget="section_and_note_text"/>
+                                        <field name="display_type" column_invisible="1"/>
+                                        <field name="description"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page name="inspection_images" string="Inspection Images">
+                                <field name="inspection_image_ids" nolabel="1" readonly="stages == 'locked'">
+                                    <form>
+                                        <sheet>
+                                            <div class="oe_title float-left">
+                                                <label for="name"/>
+                                                <h1>
+                                                    <field name="name" placeholder="e.g. Name"/>
+                                                </h1>
+                                            </div>
+                                            <div style="width: 40%; height: 40%;" class="float-right">
+                                                <field name="avatar" style="width: 40%; height: 40%;"
+                                                       class="img-thumbnail float-right" widget="image" required="1"/>
+                                            </div>
+                                        </sheet>
+                                    </form>
+                                    <kanban string="Inspection Images">
+                                        <field name="id"/>
+                                        <field name="name"/>
+                                        <field name="avatar"/>
+                                        <templates>
+                                            <t t-name="card" class="border-0">
+                                                <div class="card oe_kanban_global_click p-0 border-0">
+                                                    <div class="row">
+                                                        <div class="col-8">
+                                                            <strong>
+                                                                <field name="name"/>
+                                                            </strong>
+                                                        </div>
+                                                        <div class="col-4 text-end">
+                                                            <!-- below 100 Kb: good -->
+                                                            <t t-if="record.avatar.raw_value.length &lt; 100*1000">
+                                                                <t t-set="size_status" t-value="'text-bg-success'"/>
+                                                                <t t-set="message">Acceptable file size</t>
+                                                            </t>
+                                                            <!-- below 1000 Kb: decent -->
+                                                            <t t-elif="record.avatar.raw_value.length &lt; 1000*1000">
+                                                                <t t-set="size_status" t-value="'text-bg-warning'"/>
+                                                                <t t-set="message">Huge file size. The image should be
+                                                                    optimized/reduced.
+                                                                </t>
+                                                            </t>
+                                                            <!-- above 1000 Kb: bad -->
+                                                            <t t-else="1">
+                                                                <t t-set="size_status"
+                                                                   t-value="'text-bg-danger'"/>
+                                                                <t t-set="message">Optimization required! Reduce the
+                                                                    image size or increase your compression settings.
+                                                                </t>
+                                                            </t>
+                                                            <span t-attf-class="badge #{size_status} o_product_image_size"
+                                                                  t-esc="record.avatar.value" t-att-title="message"/>
+                                                        </div>
+                                                    </div>
+                                                    <hr class="mb-1 mt-1"/>
+                                                    <div class="h-100 w-100">
+                                                        <field name="avatar" widget="image" class="card-img-top"
+                                                               style="height:223px;"
+                                                               options="{'img_class': 'object-fit-cover h-100 w-100', 'size': [360, 223]}"/>
+                                                    </div>
+                                                </div>
+                                            </t>
+                                        </templates>
+                                    </kanban>
+                                </field>
+                            </page>
+                            <page name="review_note" string="Review Notes"
+                                  invisible="stages not in ['in_review', 'reject', 'c_complete']">
+                                <field name="review_notes" nolabel="1" readonly="stages == 'locked'"/>
+                            </page>
+                        </notebook>
+                        <br/>
+                        <separator string="Required vehicle spare parts" name="required_parts"
+                                   invisible="inspect_type != 'inspection_and_repair'"
+                                   groups="tk_advance_vehicle_repair.vehicle_repair_manager,tk_advance_vehicle_repair.vehicle_repair_supervisor,tk_advance_vehicle_repair.vehicle_repair_technician"/>
+                        <field name="vehicle_spare_part_ids" nolabel="1"
+                               invisible="inspect_type != 'inspection_and_repair'"
+                               readonly="sale_order_state in ['sent', 'sale', 'done', 'cancel'] or stages == 'locked'"
+                               groups="tk_advance_vehicle_repair.vehicle_repair_manager,tk_advance_vehicle_repair.vehicle_repair_supervisor,tk_advance_vehicle_repair.vehicle_repair_technician">
+                            <list editable="bottom">
+                                <field name="product_id" options="{'no_create': True, 'no_create_edit': True}"/>
+                                <field name="qty"/>
+                                <field name="unit_price"
+                                       groups="tk_advance_vehicle_repair.vehicle_repair_manager,tk_advance_vehicle_repair.vehicle_repair_supervisor"/>
+                                <field name="sub_total" sum="sub_total"
+                                       groups="tk_advance_vehicle_repair.vehicle_repair_manager,tk_advance_vehicle_repair.vehicle_repair_supervisor"/>
+                                <field name="company_id" column_invisible="1"/>
+                                <field name="currency_id" column_invisible="1"/>
+                            </list>
+                        </field>
+                        <separator string="Required vehicle services" name="required_services"
+                                   invisible="inspect_type != 'inspection_and_repair'"
+                                   groups="tk_advance_vehicle_repair.vehicle_repair_manager,tk_advance_vehicle_repair.vehicle_repair_supervisor,tk_advance_vehicle_repair.vehicle_repair_technician"/>
+                        <field name="inspection_repair_team_ids" nolabel="1"
+                               invisible="inspect_type != 'inspection_and_repair'"
+                               readonly="sale_order_state in ['sent', 'sale', 'done', 'cancel'] or stages == 'locked'"
+                               groups="tk_advance_vehicle_repair.vehicle_repair_manager,tk_advance_vehicle_repair.vehicle_repair_supervisor,tk_advance_vehicle_repair.vehicle_repair_technician">
+                            <form>
+                                <sheet>
+                                    <group string="Service Details">
+                                        <group>
+                                            <field name="vehicle_service_id"
+                                                   options="{'no_create': True, 'no_create_edit': True}"/>
+                                        </group>
+                                        <group>
+                                            <label for="start_date" string="Date"/>
+                                            <div class="o_row">
+                                                <field name="start_date" nolabel="1" class="oe_inline"/>
+                                                <i class="fa fa-long-arrow-right mx-2" aria-label="Arrow icon"
+                                                   title="Arrow"/>
+                                                <field name="end_date" nolabel="1" class="oe_inline"/>
+                                            </div>
+                                            <field name="service_charge"
+                                                   groups="tk_advance_vehicle_repair.vehicle_repair_manager,tk_advance_vehicle_repair.vehicle_repair_supervisor"/>
+                                            <field name="company_id" invisible="1"/>
+                                            <field name="currency_id" invisible="1"/>
+                                        </group>
+                                    </group>
+                                </sheet>
+                            </form>
+                            <list>
+                                <field name="vehicle_service_id"/>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                                <field name="service_charge" sum="service_charge"
+                                       groups="tk_advance_vehicle_repair.vehicle_repair_manager,tk_advance_vehicle_repair.vehicle_repair_supervisor"/>
+                                <field name="company_id" column_invisible="1"/>
+                                <field name="currency_id" column_invisible="1"/>
+                            </list>
+                        </field>
+                        <br/>
+                        <div class="row">
+                            <div class="col-3">
+                                <group>
+                                    <field name="date" readonly="stages == 'locked'" style="width: auto;"/>
+                                </group>
+                                <field name="signature" widget="signature" nolabel="1" readonly="stages == 'locked'"
+                                       style="width: auto;"/>
+                                <br/>
+                                <h5 style="text-align: center;">
+                                    Authorized Signature
+                                </h5>
+                            </div>
+                            <div class="col-6">
+                            </div>
+                            <div class="col-3" style="text-align: right;"
+                                 groups="tk_advance_vehicle_repair.vehicle_repair_manager"
+                                 invisible="inspect_type != 'inspection_and_repair'">
+                                <h6>
+                                    Total Estimations
+                                    <hr style="margin: 5px;"/>
+                                </h6>
+                                Inspection Charges:
+                                <field name="inspection_charge" readonly="1" force_save="1"/>
+                                <br/>
+                                Spare Parts Charges:
+                                <field name="part_price"/>
+                                <br/>
+                                Service Charges:
+                                <field name="service_charge"/>
+                                <br/>
+                                <hr style="margin: 5px;"/>
+                                <strong>
+                                    Total:
+                                </strong>
+                                <field name="sub_total"/>
+                                <field name="company_id" invisible="1"/>
+                                <field name="currency_id" invisible="1"/>
+                            </div>
+                        </div>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+        <record id="inspection_job_card_list_view" model="ir.ui.view">
+            <field name="name">inspection.job.card.list.view</field>
+            <field name="model">inspection.job.card</field>
+            <field name="arch" type="xml">
+                <list duplicate="false">
+                    <field name="inspection_number"/>
+                    <field name="inspection_date"/>
+                    <field name="vehicle_brand_id"/>
+                    <field name="inspect_type"/>
+                    <field name="inspection_report_type"/>
+                    <field name="inspection_type"/>
+                    <field name="customer_id"/>
+                    <field name="stages" widget="badge" optional="show"
+                           decoration-info="stages == 'a_draft'"
+                           decoration-warning="stages in ('b_in_progress', 'locked')"
+                           decoration-success="stages == 'c_complete'"
+                           decoration-danger="stages == 'd_cancel'"/>
+                </list>
+            </field>
+        </record>
+        <record id="inspection_job_card_kanban_view" model="ir.ui.view">
+            <field name="name">inspection.job.card.kanban.view</field>
+            <field name="model">inspection.job.card</field>
+            <field name="arch" type="xml">
+                <kanban edit="false" group_create="0" records_draggable="0" class="o_slide_kanban" sample="1"
+                        quick_create="false">
+                    <field name="id"/>
+                    <field name="inspection_number"/>
+                    <field name="inspection_date"/>
+                    <field name="vehicle_brand_id"/>
+                    <field name="vehicle_model_id"/>
+                    <field name="registration_no"/>
+                    <field name="customer_id"/>
+                    <field name="stages"/>
+                    <field name="responsible_id"/>
+                    <field name="activity_ids"/>
+                    <templates>
+                        <t t-name="card">
+                            <main>
+                                <!-- Header -->
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <field name="inspection_number" class="fw-bold fs-5"/>
+                                    <field name="responsible_id" widget="many2one_avatar_user"
+                                           class="fw-bolder ms-auto"/>
+                                </div>
+                                <!--Center-->
+                                <div class="mb-2">
+                                    <div class="text-muted small mb-1">
+                                        <i class="fa fa-car me-1" title="Vehicle"/>
+                                        <field name="vehicle_brand_id" class="me-1"/>/
+                                        <field name="vehicle_model_id" class="me-1"/>/
+                                        <field name="registration_no"/>
+                                    </div>
+                                    <div class="text-muted small">
+                                        <i class="fa fa-user me-1" title="Customer"/>
+                                        <field name="customer_id"/>
+                                    </div>
+                                </div>
+                                <!-- Footer -->
+                                <div class="d-flex justify-content-between align-items-center pt-2 border-top">
+                                    <div class="text-muted small d-flex align-items-center flex-wrap">
+                                        <i class="fa fa-calendar me-1" title="Inspection Date"/>
+                                        <field name="inspection_date" class="me-1"/>
+                                        <field name="activity_ids" widget="kanban_activity" class="ms-2"/>
+                                    </div>
+                                    <div class="fw-bold text-end">
+                                        <field name="stages" widget="label_selection"
+                                               options="{'classes': {
+                                                                    'a_draft': 'info',
+                                                                     'b_in_progress': 'warning',
+                                                                      'c_complete': 'success',
+                                                                       'd_cancel': 'danger',
+                                                                        'locked': 'warning'}}"/>
+                                    </div>
+                                </div>
+                            </main>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <record id="inspection_job_card_pivot_view" model="ir.ui.view">
+            <field name="name">inspection.job.card.pivot.view</field>
+            <field name="model">inspection.job.card</field>
+            <field name="priority">60</field>
+            <field name="arch" type="xml">
+                <pivot string="Vehicle Details" sample="1">
+                    <field name="stages" type="col"/>
+                    <field name="inspection_date" interval="month" type="row"/>
+                    <field name="inspection_number" type="row"/>
+                </pivot>
+            </field>
+        </record>
+        <record id="inspection_job_card_calendar_view" model="ir.ui.view">
+            <field name="name">inspection.job.card.calendar.view</field>
+            <field name="model">inspection.job.card</field>
+            <field name="arch" type="xml">
+                <calendar string="Vehicle Inspection Calendar"
+                          date_start="inspection_date"
+                          event_open_popup="true"
+                          mode="month"
+                          color="inspect_type"
+                          scales="day,month,year"
+                          quick_create="False">
+                    <field name="inspect_type" filters="1" options="{'icon': 'fa fa-search'}"/>
+                    <field name="inspection_charge_type" options="{'icon': 'fa fa-money'}"/>
+                    <field name="customer_id" widget="many2one_avatar" options="{'icon': 'fa fa-user'}"/>
+                    <field name="phone" options="{'icon': 'fa fa-phone'}"/>
+                    <field name="email" options="{'icon': 'fa fa-envelope'}"/>
+                    <field name="vehicle_from" invisible="1"/>
+                    <field name="fleet_vehicle_id" invisible="not fleet_vehicle_id" options="{'icon': 'fa fa-car'}"/>
+                    <field name="register_vehicle_id" invisible="not register_vehicle_id"
+                           options="{'icon': 'fa fa-car'}"/>
+                    <field name="vehicle_brand_id" invisible="vehicle_from != 'new'" options="{'icon': 'fa fa-car'}"/>
+                    <field name="responsible_id" widget="many2one_avatar" options="{'icon': 'fa fa-user'}"
+                           invisible="not responsible_id"/>
+                </calendar>
+            </field>
+        </record>
+        <record id="inspection_job_card_search_view" model="ir.ui.view">
+            <field name="name">inspection.job.card.search.view</field>
+            <field name="model">inspection.job.card</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="inspection_number"/>
+                    <field name="vehicle_brand_id"/>
+                    <field name="vehicle_model_id"/>
+                    <field name="registration_no"/>
+                    <field name="vehicle_fuel_type_id"/>
+                    <field name="customer_id"/>
+                    <field name="vin_no"/>
+                    <group>
+                        <filter name="customer_id" string="Customer"
+                                context="{'group_by': 'customer_id'}"/>
+                        <filter name="vehicle_brand_id" string="Brand"
+                                context="{'group_by': 'vehicle_brand_id'}"/>
+                        <filter name="vehicle_model_id" string="Model"
+                                context="{'group_by': 'vehicle_model_id'}"/>
+                        <filter name="inspect_type" string="Inspection Type"
+                                context="{'group_by': 'inspect_type'}"/>
+                        <filter name="inspection_report_type" string="Inspection Report Type"
+                                context="{'group_by': 'inspection_report_type'}"/>
+                        <filter name="inspection_type" string="Type of Inspection"
+                                context="{'group_by': 'inspection_type'}"/>
+                        <filter name="transmission_type" string="Transmission Type"
+                                context="{'group_by': 'transmission_type'}"/>
+                        <filter name="responsible_id" string="Responsible"
+                                context="{'group_by': 'responsible_id'}"/>
+                        <filter name="stages" string="Status"
+                                context="{'group_by': 'stages'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="action_inspection_job_card" model="ir.actions.act_window">
+            <field name="name">Inspection Job Cards</field>
+            <field name="res_model">inspection.job.card</field>
+            <field name="view_mode">kanban,list,form,calendar,pivot,search,activity</field>
+        </record>
+    </data>
+</odoo>

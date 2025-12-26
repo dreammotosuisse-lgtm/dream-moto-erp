@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="0">
+        <record id="repair_job_card_mail_template" model="mail.template">
+            <field name="name">Repair Job Card Mail Template</field>
+            <field name="model_id" ref="tk_advance_vehicle_repair.model_repair_job_card"/>
+            <field name="subject">Vehicle Repair Completed Successfully</field>
+            <field name="email_from">{{object.company_id.email}}</field>
+            <field name="partner_to">{{ object.customer_id.id }}</field>
+            <field name="body_html" type="html">
+                <p>
+                    <h4>
+                        Dear
+                        <strong>
+                            <t t-out="object.customer_id.name"/>
+                        </strong>,
+                    </h4>
+                </p>
+                <hr/>
+                <p>
+                    We are pleased to inform you that the repair work on your vehicle,
+                    <strong>
+                        <t t-out="object.vehicle_brand_id.name"/>
+                    </strong>
+                    , has been successfully completed.
+                </p>
+                <p>
+                    Please feel free to contact us if you have any questions or need further assistance.
+                </p>
+                <h5>
+                    Best regards,
+                    <br/>
+                    <strong>
+                        <t t-out="object.responsible_id.name"/>
+                    </strong>
+                </h5>
+                <hr/>
+                <span>
+                    <h4>
+                        <t t-out="object.company_id.name"/>
+                    </h4>
+                    <t t-out="object.company_id.phone"/>
+                    <br/>
+                    <t t-out="object.company_id.email"/>
+                    <br/>
+                    <t t-out="object.company_id.website"/>
+                </span>
+            </field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+    </data>
+</odoo>

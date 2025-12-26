@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!--Section Template-->
+        <template id="adv_vehicle_inspection_section">
+            <style type="text/css">
+                .status-cell {
+                padding: 5px;
+                width: 40px;
+                text-align: center;
+                vertical-align: middle;
+                }
+                .status-box {
+                height: 20px;
+                width: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: auto;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+                background-color: white;
+                }
+                .check-icon {
+                font-size: 14px;
+                color: black !important;
+                line-height: 1;
+                }
+            </style>
+
+            <table class="table table-borderless" style="margin:0; font-size:12px;">
+                <tr>
+                    <td style="font-size:13px; background-color:#348185; color:white; padding:4px 8px;">
+                        <strong t-esc="section_title"/>
+                    </td>
+                </tr>
+            </table>
+
+            <table class="table table-borderless" style="margin:0 0 8px 0; font-size:12px;">
+                <t t-foreach="section_items" t-as="items">
+                    <tr style="border-bottom:1px solid #7dc4c9;">
+                        <!-- Okay for now -->
+                        <td class="status-cell">
+                            <t t-if="items.okay_for_now">
+                                <div class="status-box" style="background-color:green;">
+                                    <i class="fa fa-check check-icon"/>
+                                </div>
+                            </t>
+                            <t t-else="">
+                                <div class="status-box" style="border:2px solid green;"/>
+                            </t>
+                        </td>
+
+                        <!-- Further attention -->
+                        <td class="status-cell">
+                            <t t-if="items.further_attention">
+                                <div class="status-box" style="background-color:#ff8d00;">
+                                    <i class="fa fa-check check-icon"/>
+                                </div>
+                            </t>
+                            <t t-else="">
+                                <div class="status-box" style="border:2px solid #ff8d00;"/>
+                            </t>
+                        </td>
+
+                        <!-- Required attention -->
+                        <td class="status-cell">
+                            <t t-if="items.required_attention">
+                                <div class="status-box" style="background-color:red;">
+                                    <i class="fa fa-check check-icon"/>
+                                </div>
+                            </t>
+                            <t t-else="">
+                                <div class="status-box" style="border:2px solid red;"/>
+                            </t>
+                        </td>
+
+                        <!-- Not inspected -->
+                        <td class="status-cell">
+                            <t t-if="items.not_inspected">
+                                <div class="status-box" style="background-color:#71639e;">
+                                    <i class="fa fa-check check-icon"/>
+                                </div>
+                            </t>
+                            <t t-else="">
+                                <div class="status-box" style="border:2px solid #71639e;"/>
+                            </t>
+                        </td>
+
+                        <!-- Fluids filled (only Fluids) -->
+                        <td class="status-cell" t-if="is_fluids">
+                            <t t-if="items.filled">
+                                <div class="status-box" style="background-color:#17a2b8;">
+                                    <i class="fa fa-check check-icon"/>
+                                </div>
+                            </t>
+                            <t t-else="">
+                                <div class="status-box" style="border:2px solid #17a2b8;"/>
+                            </t>
+                        </td>
+
+                        <!-- Vehicle part info -->
+                        <td style="padding:2px; width:94%; vertical-align:middle;">
+                            <span t-field="items.vehicle_part_info_id"/>
+                        </td>
+                    </tr>
+                </t>
+            </table>
+        </template>
+
+        <!--Tire Inspection Section-->
+        <template id="adv_tire_inspection_section">
+            <table style="margin:0px;margin-bottom:8px; font-size: 12px;"
+                   class="table table-borderless inspection-text" t-if="adv_tire.vehicle_part_tires_ids">
+                <tr>
+                    <td colspan="4"
+                        style="font-size: 13px; background-color: #348185;color: white; padding: 2px; width: 8%">
+                        <strong>Tires</strong>
+                    </td>
+                    <td style="font-size: 12px; background-color: #348185;color: white; padding: 2px; width: 25%">
+                        <strong>Tire Pressure:</strong>
+                    </td>
+                    <td style="font-size: 12px; background-color: #348185;color: white; padding: 2px; width: 25%">
+                        <strong>Incoming</strong>
+                    </td>
+                    <td style="font-size: 12px; background-color: #348185;color: white; padding: 2px; width: 21%">
+                        <strong>Adjusted to</strong>
+                    </td>
+                    <td style="font-size: 12px; background-color: #348185;color: white; padding: 2px; width: 21%">
+                        <strong>Tread Depth</strong>
+                    </td>
+                </tr>
+                <tr t-foreach="adv_tire.vehicle_part_tires_ids" t-as="tires"
+                    style="border-bottom:1px solid #7dc4c9;">
+                    <td class="status-cell">
+                        <t t-if="tires.okay_for_now">
+                            <div class="status-box" style="background-color:green;">
+                                <i class="fa fa-check check-icon"/>
+                            </div>
+                        </t>
+                        <t t-else="">
+                            <div class="status-box" style="border:2px solid green;"/>
+                        </t>
+                    </td>
+                    <td class="status-cell">
+                        <t t-if="tires.further_attention">
+                            <div class="status-box" style="background-color:#ff8d00;">
+                                <i class="fa fa-check check-icon"/>
+                            </div>
+                        </t>
+                        <t t-else="">
+                            <div class="status-box" style="border:2px solid #ff8d00;"/>
+                        </t>
+                    </td>
+                    <td class="status-cell">
+                        <t t-if="tires.required_attention">
+                            <div class="status-box" style="background-color:red;">
+                                <i class="fa fa-check check-icon"/>
+                            </div>
+                        </t>
+                        <t t-else="">
+                            <div class="status-box" style="border:2px solid red;"/>
+                        </t>
+                    </td>
+                    <td class="status-cell">
+                        <t t-if="tires.not_inspected">
+                            <div class="status-box" style="background-color:#71639e;">
+                                <i class="fa fa-check check-icon"/>
+                            </div>
+                        </t>
+                        <t t-else="">
+                            <div class="status-box" style="border:2px solid #71639e;"/>
+                        </t>
+                    </td>
+
+                    <td style="padding: 0px; width: 25%; vertical-align: middle;">
+                        <span t-field="tires.vehicle_part_info_id"/>
+                    </td>
+                    <td style="padding: 0px; width: 25%; vertical-align: middle;">
+                        <span t-field="tires.incoming"/>
+                    </td>
+                    <td style="padding: 0px; width: 21%; vertical-align: middle;">
+                        <span t-field="tires.adjusted_to"/>
+                    </td>
+                    <td style="padding: 0px; width: 21%; vertical-align: middle;">
+                        <span t-field="tires.tread_depth"/>
+                    </td>
+                </tr>
+            </table>
+        </template>
+
+        <!--Scratch Report Section-->
+        <template id="adv_vehicle_scratch_report_section">
+            <h6 style="text-align: center; margin: 0px;">
+                Inspect vehicle with customer, Point out and mark on diagram any current damage
+                or issues.
+            </h6>
+            <table class="table table-borderless" style="margin-top: 0px;">
+                <tr style="border: 1px solid black;">
+                    <td style="width: 70%; vertical-align: top;">
+                        <t t-if="s.is_scratch_report">
+                            <img t-att-src="'data:image/png;base64,%s' % s.scratch_report_id.avatar.decode('utf-8')"
+                                 style="width: 32.4rem; height: 42rem; object-fit: cover;"/>
+                        </t>
+                        <t t-else="">
+                            <img src="/tk_advance_vehicle_repair/static/src/img/img.png"
+                                 style="width: 32.4rem; height: 42rem; object-fit: cover;"/>
+                        </t>
+                    </td>
+                    <td style="width: 30%; vertical-align: top; border: 1px solid black;">
+                        <table class="table table-borderless" style="margin-top: 0px; padding: 2px;">
+                            <h4 style="text-align: center; border-bottom: 1px solid black; margin-bottom: 1rem;margin-left: 4rem; margin-right: 4rem;">
+                                Legend
+                            </h4>
+                            <tr style="height: 2.2rem; border-bottom: 1px solid black; margin-top: 5px;">
+                                <td style="width: 20%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        SH
+                                    </strong>
+                                </td>
+                                <td style="width: 80%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        Swirls / Holograms
+                                    </strong>
+                                </td>
+                            </tr>
+                            <tr style="height: 2.2rem; border-bottom: 1px solid black;">
+                                <td style="width: 20%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        WS
+                                    </strong>
+                                </td>
+                                <td style="width: 80%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        Water Spots
+                                    </strong>
+                                </td>
+                            </tr>
+                            <tr style="height: 2.2rem; border-bottom: 1px solid black;">
+                                <td style="width: 20%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        OX
+                                    </strong>
+                                </td>
+                                <td style="width: 80%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        Oxidation
+                                    </strong>
+                                </td>
+                            </tr>
+                            <tr style="height: 2.2rem; border-bottom: 1px solid black;">
+                                <td style="width: 20%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        CF
+                                    </strong>
+                                </td>
+                                <td style="width: 80%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        Clearcoat Failure
+                                    </strong>
+                                </td>
+                            </tr>
+                            <tr style="height: 2.2rem; border-bottom: 1px solid black;">
+                                <td style="width: 20%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        DS
+                                    </strong>
+                                </td>
+                                <td style="width: 80%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        Deep Scratch
+                                    </strong>
+                                </td>
+                            </tr>
+                            <tr style="height: 2.2rem; border-bottom: 1px solid black;">
+                                <td style="width: 20%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        BD
+                                    </strong>
+                                </td>
+                                <td style="width: 80%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        Bird Dropping
+                                    </strong>
+                                </td>
+                            </tr>
+                            <tr style="height: 2.2rem; border-bottom: 1px solid black;">
+                                <td style="width: 20%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        RP
+                                    </strong>
+                                </td>
+                                <td style="width: 80%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        Rough Paint
+                                    </strong>
+                                </td>
+                            </tr>
+                            <tr style="height: 2.2rem; border-bottom: 1px solid black;">
+                                <td style="width: 20%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        UD
+                                    </strong>
+                                </td>
+                                <td style="width: 80%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        Unknown Defect
+                                    </strong>
+                                </td>
+                            </tr>
+                            <tr style="height: 2.2rem; border-bottom: 1px solid black;">
+                                <td style="width: 20%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        PT
+                                    </strong>
+                                </td>
+                                <td style="width: 80%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        Paint Transfer
+                                    </strong>
+                                </td>
+                            </tr>
+                            <tr style="height: 2.2rem; border-bottom: 1px solid black;">
+                                <td style="width: 20%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        PC
+                                    </strong>
+                                </td>
+                                <td style="width: 80%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        Pant Chip
+                                    </strong>
+                                </td>
+                            </tr>
+                            <tr style="height: 2.2rem; border-bottom: 1px solid black;">
+                                <td style="width: 20%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        GS
+                                    </strong>
+                                </td>
+                                <td style="width: 80%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        Glass Scratch
+                                    </strong>
+                                </td>
+                            </tr>
+                            <tr style="height: 2.2rem; border-bottom: 1px solid black;">
+                                <td style="width: 20%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        GC
+                                    </strong>
+                                </td>
+                                <td style="width: 80%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        Glass Chip
+                                    </strong>
+                                </td>
+                            </tr>
+                            <tr style="height: 2.2rem; border-bottom: 1px solid black;">
+                                <td style="width: 20%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        DD
+                                    </strong>
+                                </td>
+                                <td style="width: 80%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        Dents / Dings
+                                    </strong>
+                                </td>
+                            </tr>
+                            <tr style="height: 2.2rem; border-bottom: 1px solid black;">
+                                <td style="width: 20%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        SS
+                                    </strong>
+                                </td>
+                                <td style="width: 80%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        Side Swipe
+                                    </strong>
+                                </td>
+                            </tr>
+                            <tr style="height: 2.2rem; border-bottom: 1px solid black;">
+                                <td style="width: 20%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        CR
+                                    </strong>
+                                </td>
+                                <td style="width: 80%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        Curb Rash
+                                    </strong>
+                                </td>
+                            </tr>
+                            <tr style="height: 2.2rem; border-bottom: 1px solid black;">
+                                <td style="width: 20%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        WD
+                                    </strong>
+                                </td>
+                                <td style="width: 80%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        Wheel Damage
+                                    </strong>
+                                </td>
+                            </tr>
+                            <tr style="height: 2.2rem; border-bottom: 1px solid black;">
+                                <td style="width: 20%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        GC
+                                    </strong>
+                                </td>
+                                <td style="width: 80%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        Gouges / Crease
+                                    </strong>
+                                </td>
+                            </tr>
+                            <tr style="height: 2.2rem; border-bottom: 1px solid black;">
+                                <td style="width: 20%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        LM
+                                    </strong>
+                                </td>
+                                <td style="width: 80%;padding: 2px; vertical-align: bottom;">
+                                    <strong>
+                                        Loose Molding
+                                    </strong>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <table class="table table-borderless" width="100%">
+                <tr>
+                    <td style="padding: 2px; font-size: 18px;">
+                        <strong>Notes:</strong>
+                    </td>
+                </tr>
+            </table>
+        </template>
+
+    </data>
+</odoo>

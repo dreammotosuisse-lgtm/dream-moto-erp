@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!--Vehicle Item-->
+        <record id="vehicle_item_form_view" model="ir.ui.view">
+            <field name="name">vehicle.item.form.view</field>
+            <field name="model">vehicle.item</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="e.g. Front Driver's Seat" required="1"/>
+                                <br/>
+                                <field name="item_category" widget="radio" options="{'horizontal': true}"/>
+                            </h1>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="vehicle_item_list_view" model="ir.ui.view">
+            <field name="name">vehicle.item.list.view</field>
+            <field name="model">vehicle.item</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="item_category"/>
+                </list>
+            </field>
+        </record>
+        <record id="vehicle_item_search_view" model="ir.ui.view">
+            <field name="name">vehicle.item.search.view</field>
+            <field name="model">vehicle.item</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <group>
+                        <filter name="item_category" string="Category"
+                                context="{'group_by': 'item_category'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="action_vehicle_item" model="ir.actions.act_window">
+            <field name="name">Interior &amp; Mechanical Parts</field>
+            <field name="res_model">vehicle.item</field>
+            <field name="view_mode">list,form,search</field>
+            <field name="context">{'search_default_item_category': 1}</field>
+        </record>
+
+        <!--Mechanical Item Condition-->
+        <record id="mechanical_item_condition_form_view" model="ir.ui.view">
+            <field name="name">mechanical.item.condition.form.view</field>
+            <field name="model">mechanical.item.condition</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="row">
+                            <div class="col-6">
+                                <group string="Mechanical Item Condition">
+                                    <field name="vehicle_item_id" placeholder="e.g. Brakes.."
+                                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                                    <field name="mechanical_condition"/>
+                                    <field name="mechanical_condition_notes"/>
+                                </group>
+                            </div>
+                            <div class="col-6 text-center">
+                                <field name="avatar" nolabel="1" widget="image"
+                                       options='{"size": [400, 400]}' class="bg-view"/>
+                            </div>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="mechanical_item_condition_list_view" model="ir.ui.view">
+            <field name="name">mechanical.item.condition.list.view</field>
+            <field name="model">mechanical.item.condition</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="vehicle_item_id"/>
+                    <field name="mechanical_condition"/>
+                    <field name="mechanical_condition_notes"/>
+                </list>
+            </field>
+        </record>
+        <record id="mechanical_item_condition_search_view" model="ir.ui.view">
+            <field name="name">mechanical.item.condition.search.view</field>
+            <field name="model">mechanical.item.condition</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="vehicle_item_id"/>
+                    <group>
+                        <filter name="mechanical_condition" string="Mechanical Condition"
+                                context="{'group_by': 'mechanical_condition'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="action_mechanical_item_condition" model="ir.actions.act_window">
+            <field name="name">Mechanical Parts</field>
+            <field name="res_model">mechanical.item.condition</field>
+            <field name="view_mode">list,form,search</field>
+        </record>
+
+        <!--Interior Item Condition-->
+        <record id="interior_item_condition_form_view" model="ir.ui.view">
+            <field name="name">interior.item.condition.form.view</field>
+            <field name="model">interior.item.condition</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="row">
+                            <div class="col-6">
+                                <group string="Interior Item Condition">
+                                    <field name="vehicle_item_id" placeholder="e.g. Seat.."
+                                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                                    <field name="interior_condition"/>
+                                    <field name="interior_condition_notes"/>
+                                </group>
+                            </div>
+                            <div class="col-6 text-center">
+                                <field name="avatar" nolabel="1" widget="image"
+                                       options='{"size": [400, 400]}' class="bg-view"/>
+                            </div>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="interior_item_condition_list_view" model="ir.ui.view">
+            <field name="name">interior.item.condition.list.view</field>
+            <field name="model">interior.item.condition</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="vehicle_item_id"/>
+                    <field name="interior_condition"/>
+                    <field name="interior_condition_notes"/>
+                </list>
+            </field>
+        </record>
+        <record id="interior_item_condition_search_view" model="ir.ui.view">
+            <field name="name">interior.item.condition.search.view</field>
+            <field name="model">interior.item.condition</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="vehicle_item_id"/>
+                    <group>
+                        <filter name="interior_condition" string="Interior Condition"
+                                context="{'group_by': 'interior_condition'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="action_interior_item_condition" model="ir.actions.act_window">
+            <field name="name">Interior Parts</field>
+            <field name="res_model">interior.item.condition</field>
+            <field name="view_mode">list,form,search</field>
+        </record>
+    </data>
+</odoo>

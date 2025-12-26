@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="booking_appointment_form_view" model="ir.ui.view">
+            <field name="name">booking.appointment.form.view</field>
+            <field name="model">booking.appointment</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" invisible="1"/>
+                                <field name="appointment_day" readonly="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="appointment_slots" string="Appointment Slots">
+                                <h4 class="font-italic text-muted text-center text-info">
+                                    Please enter the time in 24-hour format in both the 'Starting Time' and 'Closing
+                                    Time' fields. For example, use 09:00 for 9:00 AM and 14:30 for 2:30 PM.
+                                </h4>
+                                <hr/>
+                                <field name="booking_appointment_slot_ids" nolabel="1">
+                                    <list editable="bottom">
+                                        <field name="title" required="1"/>
+                                        <field name="from_time" widget="float_time"/>
+                                        <field name="to_time" widget="float_time"/>
+                                        <field name="booking_appointment_id" column_invisible="1"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="booking_appointment_list_view" model="ir.ui.view">
+            <field name="name">booking.appointment.list.view</field>
+            <field name="model">booking.appointment</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="appointment_day"/>
+                </list>
+            </field>
+        </record>
+        <record id="booking_appointment_search_view" model="ir.ui.view">
+            <field name="name">booking.appointment.search.view</field>
+            <field name="model">booking.appointment</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="appointment_day"/>
+                    <group>
+                        <filter name="appointment_day" string="Appointment Day"
+                                context="{'group_by': 'appointment_day'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="action_booking_appointment" model="ir.actions.act_window">
+            <field name="name">Booking Appointments</field>
+            <field name="res_model">booking.appointment</field>
+            <field name="view_mode">list,form,search</field>
+        </record>
+    </data>
+</odoo>

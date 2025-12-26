@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="0">
+        <record id="classic_inspection_quotation_mail_template" model="mail.template">
+            <field name="name">Classic Inspection Quotation Mail Template</field>
+            <field name="model_id" ref="tk_advance_vehicle_repair.model_inspection_job_card"/>
+            <field name="subject">Vehicle Inspection Quotation for Your Approval</field>
+            <field name="email_from">{{object.company_id.email}}</field>
+            <field name="partner_to">{{ object.customer_id.id }}</field>
+            <field name="body_html" type="html">
+                <p>
+                    <h4>
+                        Dear
+                        <strong>
+                            <t t-out="object.customer_id.name"/>
+                        </strong>,
+                    </h4>
+                </p>
+                <hr/>
+                <p>
+                    I hope this message finds you well.
+                </p>
+                <p>
+                    Following the recent inspection of your vehicle, we have prepared a detailed quotation. Please find
+                    the quotation attached for your review.
+                </p>
+                <hr/>
+                <table>
+                    <tr>
+                        <td colspan="2" style="text-align: center; width: 100%">
+                            <strong>
+                                Vehicle Details
+                            </strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%">
+                            <strong>
+                                Make / Model:
+                            </strong>
+                        </td>
+                        <td style="width: 50%">
+                            <span t-field="object.vehicle_brand_id"/>&#160;-
+                            <span t-field="object.vehicle_model_id"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%">
+                            <strong>
+                                Registration No.:
+                            </strong>
+                        </td>
+                        <td style="width: 50%">
+                            <span t-field="object.registration_no"/>
+                        </td>
+                    </tr>
+                    <tr t-if="object.vin_no">
+                        <td style="width: 50%">
+                            <strong>
+                                VIN No. :
+                            </strong>
+                        </td>
+                        <td style="width: 50%">
+                            <span t-field="object.vin_no"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%">
+                            <strong>
+                                Estimated Quotation:
+                            </strong>
+                        </td>
+                        <td style="width: 50%">
+                            <t t-out="object.sale_order_id.name"/>&#160;-
+                            <t t-out="format_amount(object.amount_total, object.currency_id)"/>
+                        </td>
+                    </tr>
+                </table>
+                <hr/>
+                <p>
+                    Please review the attached report at your earliest convenience and contact us with any questions or
+                    for further clarification.
+                </p>
+                <p>
+                    Please approve or modify the recommended services via email. Upon confirmation, we'll schedule the
+                    work at your convenience.
+                </p>
+                <p>
+                    Thank you for entrusting us with the care of your vehicle. We look forward to your response.
+                </p>
+                <h5>
+                    Best regards,
+                    <br/>
+                    <strong>
+                        <t t-out="object.responsible_id.name"/>
+                    </strong>
+                </h5>
+                <hr/>
+                <span>
+                    <h4>
+                        <t t-out="object.company_id.name"/>
+                    </h4>
+                    <t t-out="object.company_id.phone"/>
+                    <br/>
+                    <t t-out="object.company_id.email"/>
+                    <br/>
+                    <t t-out="object.company_id.website"/>
+                </span>
+            </field>
+            <field name="report_template_ids" eval="[(4, ref('tk_advance_vehicle_repair.vehicle_inspection_report'))]"/>
+            <field name="lang">{{ object.customer_id.lang }}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+    </data>
+</odoo>

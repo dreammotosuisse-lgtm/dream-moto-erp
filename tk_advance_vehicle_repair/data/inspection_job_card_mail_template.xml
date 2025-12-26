@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="0">
+        <record id="inspection_job_card_mail_template" model="mail.template">
+            <field name="name">Inspection Job Card Mail Template</field>
+            <field name="model_id" ref="tk_advance_vehicle_repair.model_inspection_job_card"/>
+            <field name="subject">Vehicle Inspection Completed - Important Information</field>
+            <field name="email_from">{{object.company_id.email}}</field>
+            <field name="partner_to">{{ object.customer_id.id }}</field>
+            <field name="body_html" type="html">
+                <p>
+                    <h4>
+                        Dear
+                        <strong>
+                            <t t-out="object.customer_id.name"/>
+                        </strong>,
+                    </h4>
+                </p>
+                <hr/>
+                <p>
+                    We are pleased to inform you that the inspection of your vehicle has been successfully completed.
+                </p>
+                <hr/>
+                <table>
+                    <tr>
+                        <td colspan="2" style="text-align: center; width: 100%">
+                            <strong>
+                                Inspection Details
+                            </strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%">
+                            <strong>
+                                Vehicle Make / Model:
+                            </strong>
+                        </td>
+                        <td style="width: 50%">
+                            <span t-field="object.vehicle_brand_id"/>&#160;-
+                            <span t-field="object.vehicle_model_id"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%">
+                            <strong>
+                                Registration No.:
+                            </strong>
+                        </td>
+                        <td style="width: 50%">
+                            <span t-field="object.registration_no"/>
+                        </td>
+                    </tr>
+                    <tr t-if="object.vin_no">
+                        <td style="width: 50%">
+                            <strong>
+                                VIN No.:
+                            </strong>
+                        </td>
+                        <td style="width: 50%">
+                            <span t-field="object.vin_no"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%">
+                            <strong>
+                                Inspection Date:
+                            </strong>
+                        </td>
+                        <td style="width: 50%">
+                            <span t-field="object.inspection_date"/>
+                        </td>
+                    </tr>
+                </table>
+                <hr/>
+                <p>
+                    <strong>
+                        Next Steps:
+                    </strong>
+                    <br/>
+                    If any maintenance or repairs are recommended, we suggest scheduling an appointment at your earliest
+                    convenience to ensure your vehicle continues to operate safely and efficiently.
+                </p>
+                <p>
+                    <strong>
+                        You can book an appointment by:
+                    </strong>
+                    <br/>
+                    Calling us at
+                    <strong>
+                        <t t-out="object.company_id.phone"/>
+                    </strong>
+                    <br/>
+                    Visiting our website at
+                    <strong>
+                        <t t-out="object.company_id.website"/>
+                    </strong>
+                </p>
+                <p>
+                    We appreciate your trust in us to keep your vehicle in optimal condition. Should you have any
+                    questions or need further assistance, please do not hesitate to contact us.
+                </p>
+                <p>
+                    Thank you for choosing
+                    <strong>
+                        <t t-out="object.company_id.name"/>
+                    </strong>
+                    .
+                </p>
+                <h5>
+                    Best regards,
+                    <br/>
+                    <strong>
+                        <t t-out="object.responsible_id.name"/>
+                    </strong>
+                </h5>
+                <hr/>
+                <span>
+                    <h4>
+                        <t t-out="object.company_id.name"/>
+                    </h4>
+                    <t t-out="object.company_id.phone"/>
+                    <br/>
+                    <t t-out="object.company_id.email"/>
+                    <br/>
+                    <t t-out="object.company_id.website"/>
+                </span>
+            </field>
+            <field name="lang">{{ object.customer_id.lang }}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+    </data>
+</odoo>

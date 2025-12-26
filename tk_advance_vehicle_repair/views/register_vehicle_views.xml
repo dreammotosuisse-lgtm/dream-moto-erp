@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!--Service History Form View-->
+        <record id="service_history_form_view" model="ir.ui.view">
+            <field name="name">service.history.form.view</field>
+            <field name="model">service.history</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="display_name" invisible="1"/>
+                                <label for="odometer" string="Last Odometer"/>
+                                <div class="address_format">
+                                    <field name="odometer" style="width: 25%"/>
+                                    <field name="odometer_unit" required="1" style="width: 20%; margin-left: 15px;"/>
+                                </div>
+                            </group>
+                            <group>
+                                <field name="service_date" required="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Register Vehicle Form View-->
+        <record id="register_vehicle_form_view" model="ir.ui.view">
+            <field name="name">register.vehicle.form.view</field>
+            <field name="model">register.vehicle</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box" position="inside">
+                            <button class="oe_stat_button" type="object" name="action_view_vehicle_bookings"
+                                    invisible="vehicle_booking_count == 0" icon="fa-calendar">
+                                <field string="Bookings" name="vehicle_booking_count" widget="statinfo"/>
+                            </button>
+                            <button class="oe_stat_button" type="object" name="action_view_inspection_job_cards"
+                                    invisible="inspection_job_card_count == 0" icon="fa-search">
+                                <field string="Inspections" name="inspection_job_card_count" widget="statinfo"/>
+                            </button>
+                            <button class="oe_stat_button" type="object" name="action_view_repair_job_cards"
+                                    invisible="repair_job_card_count == 0" icon="fa-gears">
+                                <field string="Repairs" name="repair_job_card_count" widget="statinfo"/>
+                            </button>
+                        </div>
+                        <separator string="Vehicle Details" name="register_vehicle_details"/>
+                        <group>
+                            <group>
+                                <field name="display_name" invisible="1"/>
+                                <field name="customer_id" required="1"
+                                       options="{'no_create': True, 'no_create_edit': True}"/>
+                                <field name="vehicle_brand_id" required="1"
+                                       options="{'no_create': True, 'no_create_edit': True}"/>
+                                <field name="make"/>
+                                <field name="registration_no" required="1"/>
+                                <field name="vehicle_fuel_type_id" required="1"
+                                       options="{'no_create': True, 'no_create_edit': True}"/>
+                            </group>
+                            <group>
+                                <field name="vehicle_model_id" required="1"
+                                       options="{'no_create': True, 'no_create_edit': True}"/>
+                                <field name="manufacturing_year"/>
+                                <field name="vin_no"/>
+                                <field name="transmission_type" widget="radio" options="{'horizontal': true}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="odometer_history" string="Odometer History">
+                                <field name="service_history_ids">
+                                    <list default_order='odometer asc'>
+                                        <field name="display_name" column_invisible="1"/>
+                                        <field name="service_date"/>
+                                        <field name="odometer"/>
+                                        <field name="odometer_unit" string="Unit"/>
+                                        <field name="register_vehicle_id" column_invisible="1"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="register_vehicle_list_view" model="ir.ui.view">
+            <field name="name">register.vehicle.list.view</field>
+            <field name="model">register.vehicle</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="display_name" column_invisible="1"/>
+                    <field name="customer_id"/>
+                    <field name="vehicle_brand_id"/>
+                    <field name="vehicle_model_id"/>
+                    <field name="registration_no"/>
+                    <field name="vehicle_fuel_type_id"/>
+                    <field name="vin_no"/>
+                    <field name="transmission_type"/>
+                </list>
+            </field>
+        </record>
+        <record id="register_vehicle_search_view" model="ir.ui.view">
+            <field name="name">register.vehicle.search.view</field>
+            <field name="model">register.vehicle</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="make"/>
+                    <field name="registration_no"/>
+                    <field name="manufacturing_year"/>
+                    <field name="vin_no"/>
+                    <group>
+                        <filter name="customer_id" string="Customer"
+                                context="{'group_by': 'customer_id'}"/>
+                        <filter name="vehicle_brand_id" string="Brand"
+                                context="{'group_by': 'vehicle_brand_id'}"/>
+                        <filter name="vehicle_model_id" string="Model"
+                                context="{'group_by': 'vehicle_model_id'}"/>
+                        <filter name="vehicle_fuel_type_id" string="Fuel Type"
+                                context="{'group_by': 'vehicle_fuel_type_id'}"/>
+                        <filter name="transmission_type" string="Transmission Type"
+                                context="{'group_by': 'transmission_type'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="action_register_vehicle" model="ir.actions.act_window">
+            <field name="name">Register Vehicles</field>
+            <field name="res_model">register.vehicle</field>
+            <field name="view_mode">list,form,search</field>
+        </record>
+    </data>
+</odoo>

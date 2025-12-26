@@ -1,0 +1,3219 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* tk_vehicle_repair
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-13 05:04+0000\n"
+"PO-Revision-Date: 2025-01-13 05:04+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tk_vehicle_repair
+#: model:ir.model,name:tk_vehicle_repair.model_fuel_level_monitoring
+msgid " Fuel-Level Monitoring"
+msgstr "مراقبة مستوى الوقود"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_fleet_vehicle__vehicle_model_id
+msgid " Model"
+msgstr "نموذج"
+
+#. module: tk_vehicle_repair
+#. odoo-javascript
+#: code:addons/tk_vehicle_repair/static/src/js/lib/index.js:0
+msgid "%1 hidden"
+msgstr "%1 hidden"
+
+#. module: tk_vehicle_repair
+#. odoo-javascript
+#: code:addons/tk_vehicle_repair/static/src/js/lib/index.js:0
+msgid "%1 shown"
+msgstr "%1 shown"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.model,name:tk_vehicle_repair.vehicle_model_5
+msgid "3 Series"
+msgstr "3 سلسلة"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.model,name:tk_vehicle_repair.vehicle_model_9
+msgid "488 Pista"
+msgstr "488 بيستا"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.model,name:tk_vehicle_repair.vehicle_model_7
+msgid "5 Series"
+msgstr "5 سلسلة"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_details_ir_ui_view
+msgid ""
+"<br/>\n"
+"                                                has been successfully submitted."
+msgstr ""
+"<br/>\n"
+"                                                تم تقديمه بنجاح."
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid ""
+"<br/>\n"
+"                                            Assign Date:"
+msgstr ""
+"<br/>\n"
+"                                            تاريخ التعيين:"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid ""
+"<br/>\n"
+"                                            Chassis No:"
+msgstr ""
+"<br/>\n"
+"                                            رقم الهيكل:"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid ""
+"<br/>\n"
+"                                            Delivery Date:"
+msgstr ""
+"<br/>\n"
+"                                            تاريخ التسليم او الوصول:"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid ""
+"<br/>\n"
+"                                            Email:"
+msgstr ""
+"<br/>\n"
+"                                            بريد إلكتروني:"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid ""
+"<br/>\n"
+"                                            Job Card Date/Time:"
+msgstr ""
+"<br/>\n"
+"                                            تاريخ/وقت بطاقة الوظيفة:"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid ""
+"<br/>\n"
+"                                            Phone:"
+msgstr ""
+"<br/>\n"
+"                                           هاتف:"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid ""
+"<br/>\n"
+"                                            Registration No.:"
+msgstr ""
+"<br/>\n"
+"                                            رقم التسجيل:"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid ""
+"<br/>\n"
+"                                            Supervisor:"
+msgstr ""
+"<br/>\n"
+"                                            مشرف:"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid ""
+"<br/>\n"
+"                                        Total Part Price:"
+msgstr ""
+"<br/>\n"
+"                                        إجمالي سعر القطعة:"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid ""
+"<br/>\n"
+"                                    <span>\n"
+"                                        <strong>\n"
+"                                            Customer Signature\n"
+"                                        </strong>\n"
+"                                    </span>"
+msgstr ""
+"<br/>\n"
+"                                    <span>\n"
+"                                        <strong>\n"
+"                                            توقيع العميل\n"
+"                                        </strong>\n"
+"                                    </span>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid ""
+"<br/>\n"
+"                                    <span>\n"
+"                                        <strong>\n"
+"                                            Supervisor Signature\n"
+"                                        </strong>\n"
+"                                    </span>"
+msgstr ""
+"<br/>\n"
+"                                    <span>\n"
+"                                        <strong>\n"
+"                                           توقيع المشرف\n"
+"                                        </strong>\n"
+"                                    </span>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid ""
+"<br/>\n"
+"                                    <span>\n"
+"                                        <strong>\n"
+"                                            Technician Signature\n"
+"                                        </strong>\n"
+"                                    </span>"
+msgstr ""
+"<br/>\n"
+"                                    <span>\n"
+"                                        <strong>\n"
+"                                            توقيع فني\n"
+"                                        </strong>\n"
+"                                    </span>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid ""
+"<br/>\n"
+"                                <span>\n"
+"                                    <strong>\n"
+"                                        Customer Signature\n"
+"                                    </strong>\n"
+"                                </span>"
+msgstr ""
+"<br/>\n"
+"                                <span>\n"
+"                                    <strong>\n"
+"                                        توقيع العميل\n"
+"                                    </strong>\n"
+"                                </span>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid ""
+"<br/>\n"
+"                                <span>\n"
+"                                    <strong>\n"
+"                                        Supervisor Signature\n"
+"                                    </strong>\n"
+"                                </span>"
+msgstr ""
+"<br/>\n"
+"                                <span>\n"
+"                                    <strong>\n"
+"                                        توقيع المشرف\n"
+"                                    </strong>\n"
+"                                </span>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid ""
+"<br/>\n"
+"                                <span>\n"
+"                                    <strong>\n"
+"                                        Technician Signature\n"
+"                                    </strong>\n"
+"                                </span>"
+msgstr ""
+"<br/>\n"
+"                                <span>\n"
+"                                    <strong>\n"
+"                                        توقيع فني\n"
+"                                    </strong>\n"
+"                                </span>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_request_order_page
+msgid ""
+"<i class=\"fa fa-calendar-check-o me-1\" aria-hidden=\"true\">\n"
+"                                </i>\n"
+"                                Slot Booking"
+msgstr ""
+"<i class=\"fa fa-calendar-check-o me-1\" aria-hidden=\"true\">\n"
+"                                </i>\n"
+"                                حجز الفتحة"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid ""
+"<i class=\"fa fa-car me-1\" aria-hidden=\"true\">\n"
+"                                            </i>\n"
+"                                            Vehicle Details"
+msgstr ""
+"<i class=\"fa fa-car me-1\" aria-hidden=\"true\">\n"
+"                                            </i>\n"
+"                                            تفاصيل المركبة"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_request_order_page
+msgid ""
+"<i class=\"fa fa-car me-1\" aria-hidden=\"true\">\n"
+"                                </i>\n"
+"                                Vehicle Details"
+msgstr ""
+"<i class=\"fa fa-car me-1\" aria-hidden=\"true\">\n"
+"                                </i>\n"
+"                                تفاصيل المركبة"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid ""
+"<i class=\"fa fa-credit-card me-1\" aria-hidden=\"true\">\n"
+"                                        </i>\n"
+"                                        Total Estimations"
+msgstr ""
+"<i class=\"fa fa-credit-card me-1\" aria-hidden=\"true\">\n"
+"                                        </i>\n"
+"                                        إجمالي التقديرات"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid ""
+"<i class=\"fa fa-gears me-1\" aria-hidden=\"true\">\n"
+"                                    </i>\n"
+"                                    Spare Parts"
+msgstr ""
+"<i class=\"fa fa-gears me-1\" aria-hidden=\"true\">\n"
+"                                    </i>\n"
+"                                    قطع غيار"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid ""
+"<i class=\"fa fa-pencil-square-o me-1\" aria-hidden=\"true\">\n"
+"                                            </i>\n"
+"                                            Issues in Vehicle"
+msgstr ""
+"<i class=\"fa fa-pencil-square-o me-1\" aria-hidden=\"true\">\n"
+"                                            </i>\n"
+"                                            قضايا في السيارة"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_request_order_page
+msgid ""
+"<i class=\"fa fa-user me-1\" aria-hidden=\"true\">\n"
+"                                        </i>\n"
+"                                        Customer Details"
+msgstr ""
+"<i class=\"fa fa-user me-1\" aria-hidden=\"true\">\n"
+"                                        </i>\n"
+"                                        تفاصيل العميل"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid ""
+"<i class=\"fa fa-wrench me-1\" aria-hidden=\"true\">\n"
+"                                </i>\n"
+"                                Vehicle Services"
+msgstr ""
+"<i class=\"fa fa-wrench me-1\" aria-hidden=\"true\">\n"
+"                                </i>\n"
+"                                خدمات المركبات"
+
+#. module: tk_vehicle_repair
+#: model:mail.template,body_html:tk_vehicle_repair.vehicle_repair_mail_template
+msgid ""
+"<p>\n"
+"                    <h4>\n"
+"                        Dear Customer,\n"
+"                        <br>\n"
+"                        <strong>\n"
+"                            <t t-out=\"object.customer_id.name\"></t>\n"
+"                        </strong>\n"
+"                    </h4>\n"
+"                </p>\n"
+"                <hr>\n"
+"\n"
+"                <p>\n"
+"                    We are pleased to inform you that your vehicle,\n"
+"                    <strong>\n"
+"                        <t t-out=\"object.vehicle_brand_id.name\"></t>\n"
+"                    </strong>\n"
+"                     - \n"
+"                    <strong>\n"
+"                        <t t-out=\"object.vehicle_model_id.name\"></t>\n"
+"                    </strong>\n"
+"                    has been successfully repaired\n"
+"                    and is ready for pickup.\n"
+"                </p>\n"
+"                <hr>\n"
+"                <table>\n"
+"                    <tr>\n"
+"                        <td colspan=\"2\" style=\"text-align: center; width: 100%\">\n"
+"                            <strong>\n"
+"                                Details of the Repair:\n"
+"                            </strong>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                    <tr>\n"
+"                        <td style=\"width: 50%\">\n"
+"                            <strong>\n"
+"                                Repair Order Number:\n"
+"                            </strong>\n"
+"                        </td>\n"
+"                        <td style=\"width: 50%\">\n"
+"                            <span t-field=\"object.job_card_number\"></span>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                    <tr>\n"
+"                        <td style=\"width: 50%\">\n"
+"                            <strong>\n"
+"                                Vehicle:\n"
+"                            </strong>\n"
+"                        </td>\n"
+"                        <td style=\"width: 50%\">\n"
+"                            <t t-out=\"object.vehicle_brand_id.name\"></t> \n"
+"                            <t t-out=\"object.vehicle_model_id.name\"></t>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                    <tr>\n"
+"                        <td style=\"width: 50%\">\n"
+"                            <strong>\n"
+"                                Job Card Date/Time:\n"
+"                            </strong>\n"
+"                        </td>\n"
+"                        <td style=\"width: 50%\">\n"
+"                            <t t-out=\"object.date\"></t>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                </table>\n"
+"                <hr>\n"
+"                <p>\n"
+"                    Please visit our service center to collect your vehicle at your earliest convenience.\n"
+"                </p>\n"
+"                <p>\n"
+"                    If you have any questions, feel free to contact us at\n"
+"                    <strong>\n"
+"                        <t t-out=\"object.company_id.phone\"></t>\n"
+"                    </strong>\n"
+"                    .\n"
+"                </p>\n"
+"                <p>\n"
+"                    Thank you for choosing\n"
+"                    <strong>\n"
+"                        <t t-out=\"object.company_id.name\"></t>\n"
+"                    </strong>\n"
+"                    . We appreciate your trust and look forward to serving you\n"
+"                    again!\n"
+"                </p>\n"
+"                <h5>\n"
+"                    Best regards,\n"
+"                    <br>\n"
+"                    <strong>\n"
+"                        <t t-out=\"object.responsible_id.name\"></t>\n"
+"                    </strong>\n"
+"                </h5>\n"
+"                <hr>\n"
+"                <span>\n"
+"                    <h4>\n"
+"                        <t t-out=\"object.company_id.name\"></t>\n"
+"                    </h4>\n"
+"                    <t t-out=\"object.company_id.phone\"></t>\n"
+"                    <br>\n"
+"                    <t t-out=\"object.company_id.email\"></t>\n"
+"                    <br>\n"
+"                    <t t-out=\"object.company_id.website\"></t>\n"
+"                </span>\n"
+"            "
+msgstr ""
+"<p>\n"
+"                    <h4>\n"
+"                        عزيزي العميل،\n"
+"                        <br>\n"
+"                        <strong>\n"
+"                            <t t-out=\"object.customer_id.name\"></t>\n"
+"                        </strong>\n"
+"                    </h4>\n"
+"                </p>\n"
+"                <hr>\n"
+"\n"
+"                <p>\n"
+"                    يسعدنا أن نعلمك أن سيارتك،\n"
+"                    <strong>\n"
+"                        <t t-out=\"object.vehicle_brand_id.name\"></t>\n"
+"                    </strong>\n"
+"                     - \n"
+"                    <strong>\n"
+"                        <t t-out=\"object.vehicle_model_id.name\"></t>\n"
+"                    </strong>\n"
+"                    تم إصلاحه بنجاح\n"
+"                    وهو جاهز للاستلام.\n"
+"                </p>\n"
+"                <hr>\n"
+"                <table>\n"
+"                    <tr>\n"
+"                        <td colspan=\"2\" style=\"text-align: center; width: 100%\">\n"
+"                            <strong>\n"
+"                               تفاصيل الإصلاح:\n"
+"                            </strong>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                    <tr>\n"
+"                        <td style=\"width: 50%\">\n"
+"                            <strong>\n"
+"                                رقم طلب الإصلاح:\n"
+"                            </strong>\n"
+"                        </td>\n"
+"                        <td style=\"width: 50%\">\n"
+"                            <span t-field=\"object.job_card_number\"></span>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                    <tr>\n"
+"                        <td style=\"width: 50%\">\n"
+"                            <strong>\n"
+"                                عربة:\n"
+"                            </strong>\n"
+"                        </td>\n"
+"                        <td style=\"width: 50%\">\n"
+"                            <t t-out=\"object.vehicle_brand_id.name\"></t> \n"
+"                            <t t-out=\"object.vehicle_model_id.name\"></t>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                    <tr>\n"
+"                        <td style=\"width: 50%\">\n"
+"                            <strong>\n"
+"                                تاريخ/وقت بطاقة الوظيفة:\n"
+"                            </strong>\n"
+"                        </td>\n"
+"                        <td style=\"width: 50%\">\n"
+"                            <t t-out=\"object.date\"></t>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                </table>\n"
+"                <hr>\n"
+"                <p>\n"
+"                    يرجى زيارة مركز الخدمة لدينا لاستلام سيارتك في أقرب وقت ممكن.\n"
+"                </p>\n"
+"                <p>\n"
+"                    إذا كان لديك أي أسئلة، فلا تتردد في الاتصال بنا على\n"
+"                    <strong>\n"
+"                        <t t-out=\"object.company_id.phone\"></t>\n"
+"                    </strong>\n"
+"                    .\n"
+"                </p>\n"
+"                <p>\n"
+"                    شكرا لاختيارك\n"
+"                    <strong>\n"
+"                        <t t-out=\"object.company_id.name\"></t>\n"
+"                    </strong>\n"
+"                    . نقدر ثقتكم ونتطلع لخدمتكم\n"
+"                   مرة أخرى!\n"
+"                </p>\n"
+"                <h5>\n"
+"                    أطيب التحيات،\n"
+"                    <br>\n"
+"                    <strong>\n"
+"                        <t t-out=\"object.responsible_id.name\"></t>\n"
+"                    </strong>\n"
+"                </h5>\n"
+"                <hr>\n"
+"                <span>\n"
+"                    <h4>\n"
+"                        <t t-out=\"object.company_id.name\"></t>\n"
+"                    </h4>\n"
+"                    <t t-out=\"object.company_id.phone\"></t>\n"
+"                    <br>\n"
+"                    <t t-out=\"object.company_id.email\"></t>\n"
+"                    <br>\n"
+"                    <t t-out=\"object.company_id.website\"></t>\n"
+"                </span>\n"
+"            "
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid "<span class=\"c-label text-muted\">Booking Slot</span>"
+msgstr "<span class=\"c-label text-muted\">فتحة الحجز</span>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid "<span class=\"c-label text-muted\">Chassis Number</span>"
+msgstr "<span class=\"c-label text-muted\">رقم الهيكل</span>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid "<span class=\"c-label text-muted\">Engine Number</span>"
+msgstr "<span class=\"c-label text-muted\">رقم المحرك</span>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid "<span class=\"c-label text-muted\">Model</span>"
+msgstr "<span class=\"c-label text-muted\">نموذج</span>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid "<span class=\"c-label text-muted\">Registration Number</span>"
+msgstr "<span class=\"c-label text-muted\">رقم التسجيل</span>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid "<span class=\"c-label text-muted\">Service Charge</span>"
+msgstr "<span class=\"c-label text-muted\">رسوم الخدمة</span>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid "<span class=\"c-label text-muted\">Slot Booking Date</span>"
+msgstr "<span class=\"c-label text-muted\">تاريخ حجز الفتحة</span>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid "<span class=\"c-label text-muted\">Type of Service</span>"
+msgstr "<span class=\"c-label text-muted\">نوع الخدمة</span>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid "<span class=\"c-label text-muted\">VIN Number</span>"
+msgstr "<span class=\"c-label text-muted\">رقم VIN</span>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid "<span class=\"c-label text-muted\">Vehicle</span>"
+msgstr "<span class=\"c-label text-muted\">عربة</span>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_page
+msgid ""
+"<span class=\"d-none d-md-inline\"/>\n"
+"                                Done"
+msgstr ""
+"<span class=\"d-none d-md-inline\"/>\n"
+"                                منتهي"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_page
+msgid ""
+"<span class=\"d-none d-md-inline\"/>\n"
+"                                In Diagnosis"
+msgstr ""
+"<span class=\"d-none d-md-inline\"/>\n"
+"                                في التشخيص"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_page
+msgid ""
+"<span class=\"d-none d-md-inline\"/>\n"
+"                                New"
+msgstr ""
+"<span class=\"d-none d-md-inline\"/>\n"
+"                                جديد"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_page
+msgid ""
+"<span class=\"d-none d-md-inline\"/>\n"
+"                                Supervisor Inspection"
+msgstr ""
+"<span class=\"d-none d-md-inline\"/>\n"
+"                                تفتيش المشرف"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid ""
+"<span class=\"px-2\">\n"
+"                                                    Done\n"
+"                                                </span>"
+msgstr ""
+"<span class=\"px-2\">\n"
+"                                                    منتهي\n"
+"                                                </span>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid ""
+"<span class=\"px-2\">\n"
+"                                                    In Diagnosis\n"
+"                                                </span>"
+msgstr ""
+"<span class=\"px-2\">\n"
+"                                                    في التشخيص\n"
+"                                                </span>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid ""
+"<span class=\"px-2\">\n"
+"                                                    New\n"
+"                                                </span>"
+msgstr ""
+"<span class=\"px-2\">\n"
+"                                                    جديد\n"
+"                                                </span>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid ""
+"<span class=\"px-2\">\n"
+"                                                    Supervisor Inspection\n"
+"                                                </span>"
+msgstr ""
+"<span class=\"px-2\">\n"
+"                                                    تفتيش المشرف\n"
+"                                                </span>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid ""
+"<span invisible=\"is_website_order == False\" style=\"background: #90EE90; color: black; padding: 8px; border-radius: 10px; font-size: 15px; font-weight: bolder;\">\n"
+"                                    Website Request\n"
+"                                </span>"
+msgstr ""
+"<span invisible=\"is_website_order == False\" style=\"background: #90EE90; color: black; padding: 8px; border-radius: 10px; font-size: 15px; font-weight: bolder;\">\n"
+"                                    طلب موقع\n"
+"                                </span>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_request_order_page
+msgid ""
+"<span>\n"
+"                                Job Card Request\n"
+"                            </span>"
+msgstr ""
+"<span>\n"
+"                                طلب البطاقة الوظيفية\n"
+"                            </span>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid ""
+"<strong>\n"
+"                                                            Fuel Level:\n"
+"                                                        </strong>"
+msgstr ""
+"<strong>\n"
+"                                                            مستوى الوقود:\n"
+"                                                        </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid ""
+"<strong>\n"
+"                                                            Odometer Reading:\n"
+"                                                        </strong>"
+msgstr ""
+"<strong>\n"
+"                                                           قراءة عداد المسافات:\n"
+"                                                        </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        BD\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        دينار بحريني\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        Bird Dropping\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        إسقاط الطيور\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        CF\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        قوات التحالف\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        CR\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        سي آر\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        Clearcoat Failure\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        فشل كليركوت\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        Curb Rash\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        كبح الطفح الجلدي\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        DD\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        د\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        DS\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        س\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        Deep Scratch\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        خدش عميق\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        Dents / Dings\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        الخدوش / الضربات\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        GC\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        جي سي\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        GS\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        ع\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        Glass Chip\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        رقاقة زجاجية\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        Glass Scratch\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        خدش الزجاج\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        Gouges / Crease\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        الحفر / التجعد\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        LM\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        إل إم\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        Loose Molding\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        صب فضفاض\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        OX\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        ثور\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        Oxidation\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        أكسدة\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        PC\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        جهاز كمبيوتر\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        PT\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        حزب العمال\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        Paint Transfer\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        نقل الطلاء\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        Pant Chip\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        بانت تشيب\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        RP\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        ر.ب\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        Rough Paint\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        الطلاء الخام\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        SH\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        ش\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        SS\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        سس\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        Side Swipe\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        انتقاد الجانب\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        Swirls / Holograms\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        الدوامات / الصور المجسمة\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        UD\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        يو دي\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        Unknown Defect\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        عيب غير معروف\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        WD\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        دبليو دي\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        WS\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        دبليو اس\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        Water Spots\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                       بقع مائية\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"<strong>\n"
+"                                                        Wheel Damage\n"
+"                                                    </strong>"
+msgstr ""
+"<strong>\n"
+"                                                        تلف العجلة\n"
+"                                                    </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid ""
+"<strong>\n"
+"                                            Total Service Charge:\n"
+"                                        </strong>"
+msgstr ""
+"<strong>\n"
+"                                            إجمالي رسوم الخدمة:\n"
+"                                        </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid ""
+"<strong>\n"
+"                                            Total Spare Parts Price:\n"
+"                                        </strong>"
+msgstr ""
+"<strong>\n"
+"                                            إجمالي سعر قطع الغيار:\n"
+"                                        </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid ""
+"<strong>\n"
+"                                            Total:\n"
+"                                        </strong>"
+msgstr ""
+"<strong>\n"
+"                                            المجموع:\n"
+"                                        </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "<strong>After Service</strong>"
+msgstr "<strong>بعد الخدمة</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "<strong>Before Service</strong>"
+msgstr "<strong>قبل الخدمة</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "<strong>Check</strong>"
+msgstr "<strong>يفحص</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid "<strong>Customer</strong>"
+msgstr "<strong>عميل</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "<strong>Description</strong>"
+msgstr "<strong>وصف</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "<strong>Fuel Level</strong>"
+msgstr "<strong>مستوى الوقود</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid "<strong>Job Card Date/Time</strong>"
+msgstr "<strong>تاريخ/وقت بطاقة الوظيفة</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid "<strong>Job Card Number</strong>"
+msgstr "<strong>رقم البطاقة الوظيفية</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "<strong>Job Card</strong>"
+msgstr "<strong>بطاقة الوظيفة</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "<strong>Note</strong>"
+msgstr "<strong>ملحوظة</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid "<strong>Notes:</strong>"
+msgstr "<strong>ملحوظات:</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "<strong>Odometer Reading</strong>"
+msgstr "<strong>قراءة عداد المسافات</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "<strong>Product</strong>"
+msgstr "<strong>منتج</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "<strong>Quantity</strong>"
+msgstr "<strong>كمية</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid "<strong>Registration Number</strong>"
+msgstr "<strong>رقم التسجيل</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid "<strong>Responsible</strong>"
+msgstr "<strong>مسؤول</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "<strong>Service Charge</strong>"
+msgstr "<strong>رسوم الخدمة</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "<strong>Service Time</strong>"
+msgstr "<strong>وقت الخدمة</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "<strong>Service</strong>"
+msgstr "<strong>خدمة</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_request_order_page
+msgid "<strong>Slot not available</strong>"
+msgstr "<strong>الفتحة غير متوفرة</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "<strong>Sub Total</strong>"
+msgstr "<strong>المجموع الفرعي</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "<strong>Title</strong>"
+msgstr "<strong>عنوان</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "<strong>Unit Price</strong>"
+msgstr "<strong>سعر الوحدة</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "<strong>Unit</strong>"
+msgstr "<strong>وحدة</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid "<strong>Vehicle</strong>"
+msgstr "<strong>عربة</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "<strong>  Km</strong>"
+msgstr "<strong>  كم</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "<strong>  Unit  </strong>"
+msgstr "<strong>  وحدة  </strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "<strong>➤ Customer Observations</strong>"
+msgstr "<strong>➤ ملاحظات العملاء</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "<strong>➤ Fuel Levels Monitoring</strong>"
+msgstr "<strong>➤ مراقبة مستويات الوقود</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "<strong>➤ Issue In Vehicle</strong>"
+msgstr "<strong>➤ مشكلة في السيارة</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "<strong>➤ Service Details</strong>"
+msgstr "<strong>➤ تفاصيل الخدمة</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "<strong>➤ Spare Parts</strong>"
+msgstr "<strong>➤ قطع غيار</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "<strong>➤ Vehicle CheckLists</strong>"
+msgstr "<strong>➤ قوائم فحص المركبات</strong>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "<strong>➤ Vehicle Services</strong>"
+msgstr "<strong>➤ خدمات المركبات</strong>"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.model,name:tk_vehicle_repair.vehicle_model_1
+msgid "A1"
+msgstr "أ1"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.model,name:tk_vehicle_repair.vehicle_model_2
+msgid "A4"
+msgstr "A4"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.model,name:tk_vehicle_repair.vehicle_model_3
+msgid "A6"
+msgstr "أ6"
+
+#. module: tk_vehicle_repair
+#: model:ir.module.category,description:tk_vehicle_repair.module_vehicle_repair
+msgid "Access rights for Vehicle Repair"
+msgstr "حقوق الوصول لإصلاح المركبات"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.model,name:tk_vehicle_repair.vehicle_model_13
+msgid "Accord"
+msgstr "اتفاق"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__message_needaction
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__message_needaction
+msgid "Action Needed"
+msgstr "الإجراء مطلوب"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__activity_ids
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__activity_ids
+msgid "Activities"
+msgstr "أنشطة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__activity_exception_decoration
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "زخرفة استثناء النشاط"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__activity_state
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__activity_state
+msgid "Activity State"
+msgstr "حالة النشاط"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__activity_type_icon
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "رمز نوع النشاط"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_service_line__add_new_line
+msgid "Add New Line"
+msgstr "إضافة سطر جديد"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_repair_service__add_service
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.project_task_form_view
+msgid "Add Service"
+msgstr "أضف الخدمة"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "Additional Information"
+msgstr "معلومات إضافية"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.fleet_repair_form_view_inherit
+msgid "Additional Vehicle Information"
+msgstr "معلومات إضافية عن السيارة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_service_image__after_service
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "After Service Image"
+msgstr "صورة ما بعد الخدمة"
+
+#. module: tk_vehicle_repair
+#. odoo-javascript
+#: code:addons/tk_vehicle_repair/static/src/xml/template.xml:0
+msgid "All Statistics"
+msgstr "جميع الإحصائيات"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__repair_appointment_id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_repair_appointment__appointment_day
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.repair_appointment_search_view
+msgid "Appointment Day"
+msgstr "يوم التعيين"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.repair_appointment_form_view
+msgid "Appointment Slots"
+msgstr "فتحات المواعيد"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.vehicle_technician_form_view
+msgid "Assign"
+msgstr "تعيين"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__assign_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_technician__assign_date
+msgid "Assign Date"
+msgstr "تعيين التاريخ"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "Assign To Technician"
+msgstr "تعيين لفني"
+
+#. module: tk_vehicle_repair
+#: model:ir.actions.act_window,name:tk_vehicle_repair.action_vehicle_technician
+msgid "Assign to Technician"
+msgstr "تكليف فني"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.model,name:tk_vehicle_repair.vehicle_model_20
+msgid "Astra"
+msgstr "أسترا"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__message_attachment_count
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.brand,name:tk_vehicle_repair.vehicle_brand_1
+msgid "Audi"
+msgstr "أودي"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_brand__avatar
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_scratch_report__avatar
+msgid "Avatar"
+msgstr "الصورة الرمزية"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.brand,name:tk_vehicle_repair.vehicle_brand_2
+msgid "BMW"
+msgstr "بي ام دبليو"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_service_image__before_service
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "Before Service Image"
+msgstr "صورة قبل الخدمة"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "Booking Date"
+msgstr "تاريخ الحجز"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.portal_adv_breadcrumbs
+msgid "Booking Requests"
+msgstr "طلبات الحجز"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__repair_appointment_slot_id
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_request_order_page
+msgid "Booking Slot"
+msgstr "فتحة الحجز"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__vehicle_brand_id
+msgid "Brand"
+msgstr "ماركة"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.model,name:tk_vehicle_repair.vehicle_model_14
+msgid "CR-V"
+msgstr "CR-V"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.model,name:tk_vehicle_repair.vehicle_model_17
+msgid "Camry"
+msgstr "كامري"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.project_task_form_view
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.vehicle_service_line_form_view
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.vehicle_technician_form_view
+msgid "Cancel"
+msgstr "يلغي"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields.selection,name:tk_vehicle_repair.selection__project_task_service__status__cancel
+#: model:ir.model.fields.selection,name:tk_vehicle_repair.selection__vehicle_repair_service__status__cancel
+#: model:ir.model.fields.selection,name:tk_vehicle_repair.selection__vehicle_service_line__status__cancel
+msgid "Cancelled"
+msgstr "تم الإلغاء"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__chassis_no
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_register_vehicle__chassis_no
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_request_order_page
+msgid "Chassis Number"
+msgstr "رقم الهيكل"
+
+#. module: tk_vehicle_repair
+#: model:ir.model,name:tk_vehicle_repair.model_checklist_template
+msgid "Check List Template"
+msgstr "قالب قائمة التحقق"
+
+#. module: tk_vehicle_repair
+#: model:ir.model,name:tk_vehicle_repair.model_checklist_template_item
+msgid "Check List Template Items"
+msgstr "تحقق من عناصر قالب القائمة"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.checklist_template_form_view
+msgid "Checklist Details"
+msgstr "تفاصيل قائمة المراجعة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_checklist_template__checklist_template_item_ids
+msgid "Checklist Items"
+msgstr "عناصر قائمة المراجعة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_checklist_template_item__checklist_template_id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__check_list_template_id
+msgid "Checklist Template"
+msgstr "قالب قائمة المراجعة"
+
+#. module: tk_vehicle_repair
+#: model:ir.actions.act_window,name:tk_vehicle_repair.action_checklist_template
+#: model:ir.ui.menu,name:tk_vehicle_repair.menu_checklist_template
+msgid "Checklist Templates"
+msgstr "قوالب قائمة المراجعة"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.model,name:tk_vehicle_repair.vehicle_model_12
+msgid "Civic"
+msgstr "سيفيك"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.model,name:tk_vehicle_repair.vehicle_model_15
+msgid "Class A"
+msgstr "الفئة أ"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_repair_appointment_slot__to_time
+msgid "Closing Time"
+msgstr "وقت الإغلاق"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid "Communication history"
+msgstr "تاريخ الاتصالات"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__company_id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_service_line__company_id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_spare_part__company_id
+msgid "Company"
+msgstr "شركة"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.project_task_form_view
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.vehicle_service_line_form_view
+msgid "Complete"
+msgstr "مكتمل"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields.selection,name:tk_vehicle_repair.selection__project_task_service__status__complete
+#: model:ir.model.fields.selection,name:tk_vehicle_repair.selection__vehicle_repair_service__status__complete
+#: model:ir.model.fields.selection,name:tk_vehicle_repair.selection__vehicle_service_line__status__complete
+msgid "Completed"
+msgstr "مكتمل"
+
+#. module: tk_vehicle_repair
+#: model:ir.ui.menu,name:tk_vehicle_repair.menu_configuration
+msgid "Configurations"
+msgstr "التكوينات"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.model,name:tk_vehicle_repair.vehicle_model_16
+msgid "Corolla"
+msgstr "كورولا"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.model,name:tk_vehicle_repair.vehicle_model_19
+msgid "Corsa"
+msgstr "كورسا"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "Create Sale Order"
+msgstr "إنشاء أمر البيع"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_checklist_template__create_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_checklist_template_item__create_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_fuel_level_monitoring__create_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__create_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_project_task_service__create_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_register_vehicle__create_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_repair_appointment__create_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_repair_appointment_slot__create_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__create_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_brand__create_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_model__create_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_repair_dashboard__create_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_repair_service__create_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_scratch_report__create_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_service_image__create_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_service_line__create_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_spare_part__create_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_technician__create_uid
+msgid "Created by"
+msgstr "تم إنشاؤها بواسطة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_checklist_template__create_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_checklist_template_item__create_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_fuel_level_monitoring__create_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__create_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_project_task_service__create_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_register_vehicle__create_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_repair_appointment__create_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_repair_appointment_slot__create_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__create_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_brand__create_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_model__create_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_repair_dashboard__create_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_repair_service__create_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_scratch_report__create_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_service_image__create_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_service_line__create_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_spare_part__create_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_technician__create_date
+msgid "Created on"
+msgstr "تم الإنشاء بتاريخ"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__currency_id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_service_line__currency_id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_spare_part__currency_id
+msgid "Currency"
+msgstr "عملة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__is_scratch_report
+msgid "Custom Scratch Report"
+msgstr "تقرير الصفر المخصص"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__customer_id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_register_vehicle__customer_id
+msgid "Customer"
+msgstr "عميل"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "Customer Details"
+msgstr "تفاصيل العميل"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid ""
+"Customer Details\n"
+"                                            <br/>\n"
+"                                            Customer:"
+msgstr ""
+"تفاصيل العميل\n"
+"                                            <br/>\n"
+"                                            عميل:"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__customer_observation
+msgid "Customer Observation"
+msgstr "مراقبة العملاء"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "Customer Observations"
+msgstr "ملاحظات العملاء"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__customer_signature
+msgid "Customer Signature"
+msgstr "توقيع العميل"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__is_customer_vehicle
+msgid "Customer Vehicle"
+msgstr "مركبة العميل"
+
+#. module: tk_vehicle_repair
+#. odoo-javascript
+#: code:addons/tk_vehicle_repair/static/src/xml/template.xml:0
+#: model:ir.ui.menu,name:tk_vehicle_repair.menu_customer
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_search_view
+msgid "Customers"
+msgstr "عملاء"
+
+#. module: tk_vehicle_repair
+#: model:ir.ui.menu,name:tk_vehicle_repair.menu_vehicle_repair_dashboard
+msgid "Dashboard"
+msgstr "لوحة القيادة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__delivery_date
+msgid "Delivery Date"
+msgstr "تاريخ التسليم او الوصول"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_spare_part__description
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_technician__description
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid "Description"
+msgstr "وصف"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.vehicle_technician_form_view
+msgid "Descriptions"
+msgstr "الأوصاف"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_checklist_template__display_name
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_checklist_template_item__display_name
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_fuel_level_monitoring__display_name
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__display_name
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_project_task_service__display_name
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_register_vehicle__display_name
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_repair_appointment__display_name
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_repair_appointment_slot__display_name
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__display_name
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_brand__display_name
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_model__display_name
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_repair_dashboard__display_name
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_repair_service__display_name
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_scratch_report__display_name
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_service_image__display_name
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_service_line__display_name
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_spare_part__display_name
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_technician__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: tk_vehicle_repair
+#. odoo-javascript
+#: code:addons/tk_vehicle_repair/static/src/xml/template.xml:0
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__is_done
+#: model:ir.model.fields.selection,name:tk_vehicle_repair.selection__job_card__task__d_done
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "Done"
+msgstr "منتهي"
+
+#. module: tk_vehicle_repair
+#. odoo-javascript
+#: code:addons/tk_vehicle_repair/static/src/xml/template.xml:0
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__email
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_request_order_page
+msgid "Email"
+msgstr "بريد إلكتروني"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_fleet_vehicle__engine_no
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__engine_no
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_register_vehicle__engine_no
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_request_order_page
+msgid "Engine Number"
+msgstr "رقم المحرك"
+
+#. module: tk_vehicle_repair
+#. odoo-python
+#: code:addons/tk_vehicle_repair/models/job_card.py:0
+msgid "Ensure delivery date is greater than receiving date"
+msgstr "تأكد من أن تاريخ التسليم أكبر من تاريخ الاستلام"
+
+#. module: tk_vehicle_repair
+#. odoo-python
+#: code:addons/tk_vehicle_repair/models/job_card.py:0
+msgid "Ensure receiving date is greater than Job Card Date/Time."
+msgstr "تأكد من أن تاريخ الاستلام أكبر من تاريخ/وقت بطاقة الوظيفة."
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__excluded_slots
+msgid "Excluded Slots"
+msgstr "فتحات مستبعدة"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.project_task_form_view
+msgid "Extra Repair Services"
+msgstr "خدمات إصلاح إضافية"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.model,name:tk_vehicle_repair.vehicle_model_10
+msgid "F8 Tributo"
+msgstr "F8 تريبوتو"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.brand,name:tk_vehicle_repair.vehicle_brand_3
+msgid "Ferrari"
+msgstr "فيراري"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__attachment
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_request_order_page
+msgid "File Attachment"
+msgstr "مرفق الملف"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__file_name
+msgid "File Name"
+msgstr "اسم الملف"
+
+#. module: tk_vehicle_repair
+#: model:ir.model,name:tk_vehicle_repair.model_fleet_vehicle
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__fleet_vehicle_id
+msgid "Fleet Vehicle"
+msgstr "مركبة الأسطول"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.portal_job_card_request
+msgid "Follow, view job card requests"
+msgstr "متابعة، عرض طلبات بطاقة العمل"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__message_follower_ids
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__message_follower_ids
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__message_partner_ids
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعون (الشركاء)"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,help:tk_vehicle_repair.field_job_card__activity_type_icon
+#: model:ir.model.fields,help:tk_vehicle_repair.field_todo_checklist__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "رمز الخط الرائع على سبيل المثال. مهام كرة القدم"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields.selection,name:tk_vehicle_repair.selection__job_card__service_type__free
+msgid "Free"
+msgstr "حر"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields.selection,name:tk_vehicle_repair.selection__repair_appointment__appointment_day__friday
+msgid "Friday"
+msgstr "جمعة"
+
+#. module: tk_vehicle_repair
+#. odoo-javascript
+#: code:addons/tk_vehicle_repair/static/src/js/lib/index.js:0
+msgid "From %1"
+msgstr "From %1"
+
+#. module: tk_vehicle_repair
+#. odoo-javascript
+#: code:addons/tk_vehicle_repair/static/src/js/lib/index.js:0
+msgid "From %1 to %2"
+msgstr "From %1 to %2"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_fuel_level_monitoring__fuel_level
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "Fuel Level"
+msgstr "مستوى الوقود"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__fuel_level_monitoring_ids
+msgid "Fuel Level Monitoring"
+msgstr "مراقبة مستوى الوقود"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "Fuel Levels Monitoring"
+msgstr "مراقبة مستويات الوقود"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_fuel_level_monitoring__fuel_unit_id
+msgid "Fuel Unit"
+msgstr "وحدة الوقود"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields.selection,name:tk_vehicle_repair.selection__job_card__type_of_service__full
+msgid "Full service"
+msgstr "خدمة كاملة"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_search_view
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.register_vehicle_search_view
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.repair_appointment_search_view
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.vehicle_model_search_view
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.vehicle_scratch_report_search_view
+msgid "Group By"
+msgstr "المجموعة حسب"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__has_message
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__has_message
+msgid "Has Message"
+msgstr "لديه رسالة"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.model,name:tk_vehicle_repair.vehicle_model_18
+msgid "Highlander"
+msgstr "هايلاندر"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.brand,name:tk_vehicle_repair.vehicle_brand_4
+msgid "Honda"
+msgstr "هوندا"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_checklist_template__id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_checklist_template_item__id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_fuel_level_monitoring__id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_project_task_service__id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_register_vehicle__id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_repair_appointment__id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_repair_appointment_slot__id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_brand__id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_model__id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_repair_dashboard__id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_repair_service__id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_scratch_report__id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_service_image__id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_service_line__id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_spare_part__id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_technician__id
+msgid "ID"
+msgstr "بطاقة تعريف"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__activity_exception_icon
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__activity_exception_icon
+msgid "Icon"
+msgstr "رمز"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,help:tk_vehicle_repair.field_job_card__activity_exception_icon
+#: model:ir.model.fields,help:tk_vehicle_repair.field_todo_checklist__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "أيقونة للإشارة إلى نشاط الاستثناء."
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__if_any_other_vehicle
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_request_order_page
+msgid "If any other Vehicle"
+msgstr "إذا كان هناك أي مركبة أخرى"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,help:tk_vehicle_repair.field_job_card__message_needaction
+#: model:ir.model.fields,help:tk_vehicle_repair.field_todo_checklist__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "إذا تم تحديدها، فإن الرسائل الجديدة تتطلب انتباهك."
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,help:tk_vehicle_repair.field_job_card__message_has_error
+#: model:ir.model.fields,help:tk_vehicle_repair.field_job_card__message_has_sms_error
+#: model:ir.model.fields,help:tk_vehicle_repair.field_todo_checklist__message_has_error
+#: model:ir.model.fields,help:tk_vehicle_repair.field_todo_checklist__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا تم تحديده، فإن بعض الرسائل تحتوي على خطأ في التسليم."
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_fuel_level_monitoring__avatar
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__avatar
+msgid "Image"
+msgstr "صورة"
+
+#. module: tk_vehicle_repair
+#. odoo-javascript
+#: code:addons/tk_vehicle_repair/static/src/xml/template.xml:0
+#: model:ir.model.fields.selection,name:tk_vehicle_repair.selection__job_card__task__b_in_diagnosis
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "In Diagnosis"
+msgstr "في التشخيص"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields.selection,name:tk_vehicle_repair.selection__project_task_service__status__in_progress
+#: model:ir.model.fields.selection,name:tk_vehicle_repair.selection__vehicle_repair_service__status__in_progress
+#: model:ir.model.fields.selection,name:tk_vehicle_repair.selection__vehicle_service_line__status__in_progress
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.project_task_form_view
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.vehicle_service_line_form_view
+msgid "In Progress"
+msgstr "في تَقَدم"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid ""
+"Inspect vehicle with customer, Point out and mark on diagram any current damage\n"
+"                                or issues."
+msgstr ""
+"قم بفحص السيارة مع العميل، وقم بالإشارة إلى أي ضرر حالي ووضع علامة عليه على الرسم البياني\n"
+"                               أو القضايا."
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "Inspection Request"
+msgstr "طلب التفتيش"
+
+#. module: tk_vehicle_repair
+#. odoo-javascript
+#: code:addons/tk_vehicle_repair/static/src/xml/template.xml:0
+msgid "Inspections"
+msgstr "عمليات التفتيش"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields.selection,name:tk_vehicle_repair.selection__job_card__type_of_service__interim
+msgid "Interim service"
+msgstr "خدمة مؤقتة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__is_fleet_vehicle
+msgid "Is Fleet Vehicle"
+msgstr "هي مركبة الأسطول"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__message_is_follower
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__message_is_follower
+msgid "Is Follower"
+msgstr "هو تابع"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_technician__is_technician
+msgid "Is Technician"
+msgstr "هل فني"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__issue_in_vehicle
+msgid "Issue in Vehicle"
+msgstr "مشكلة في السيارة"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_request_order_page
+msgid "Issues in Vehicle"
+msgstr "قضايا في السيارة"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "Issues.."
+msgstr "مشاكل.."
+
+#. module: tk_vehicle_repair
+#: model:vehicle.brand,name:tk_vehicle_repair.vehicle_brand_5
+msgid "Jaguar"
+msgstr "جاكوار"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_account_bank_statement_line__job_card_id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_account_move__job_card_id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_fuel_level_monitoring__job_card_id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_project_task__job_card_id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_sale_order__job_card_id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__job_card_id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_service_image__job_card_id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_service_line__job_card_id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_spare_part__job_card_id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_technician__job_card_id
+msgid "Job Card"
+msgstr "بطاقة الوظيفة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__date
+msgid "Job Card Date/Time"
+msgstr "تاريخ/وقت بطاقة الوظيفة"
+
+#. module: tk_vehicle_repair
+#. odoo-javascript
+#: code:addons/tk_vehicle_repair/static/src/xml/template.xml:0
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_pivot
+msgid "Job Card Details"
+msgstr "تفاصيل بطاقة الوظيفة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__job_card_number
+msgid "Job Card No"
+msgstr "رقم البطاقة الوظيفية"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_page
+msgid "Job Card Number #"
+msgstr "رقم بطاقة الوظيفة #"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "Job Card Number:"
+msgstr "رقم بطاقة الوظيفة:"
+
+#. module: tk_vehicle_repair
+#: model:ir.actions.report,name:tk_vehicle_repair.report_action_job_card
+msgid "Job Card Report"
+msgstr "تقرير بطاقة الوظيفة"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.portal_job_card_request
+msgid "Job Card Requests"
+msgstr "طلبات البطاقة الوظيفية"
+
+#. module: tk_vehicle_repair
+#. odoo-javascript
+#: code:addons/tk_vehicle_repair/static/src/xml/template.xml:0
+#: model:ir.actions.act_window,name:tk_vehicle_repair.action_job_card
+#: model:ir.ui.menu,name:tk_vehicle_repair.menu_job_card
+#: model:website.menu,name:tk_vehicle_repair.menu_job_card_request
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.portal_adv_breadcrumbs
+msgid "Job Cards"
+msgstr "بطاقات الوظائف"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__kms_reading
+msgid "KMS Reading"
+msgstr "قراءة KMS"
+
+#. module: tk_vehicle_repair
+#. odoo-python
+#: code:addons/tk_vehicle_repair/wizards/vehicle_technician.py:0
+msgid "Kindly add vehicle registration number"
+msgstr "يرجى إضافة رقم تسجيل المركبة"
+
+#. module: tk_vehicle_repair
+#. odoo-python
+#: code:addons/tk_vehicle_repair/wizards/vehicle_technician.py:0
+msgid "Kindly add vehicle services before proceeding."
+msgstr "يرجى إضافة خدمات المركبات قبل المتابعة."
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "Km"
+msgstr "كم"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.brand,name:tk_vehicle_repair.vehicle_brand_6
+msgid "Lamborghini"
+msgstr "لامبورغيني"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_checklist_template__write_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_checklist_template_item__write_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_fuel_level_monitoring__write_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__write_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_project_task_service__write_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_register_vehicle__write_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_repair_appointment__write_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_repair_appointment_slot__write_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__write_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_brand__write_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_model__write_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_repair_dashboard__write_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_repair_service__write_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_scratch_report__write_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_service_image__write_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_service_line__write_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_spare_part__write_uid
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_technician__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_checklist_template__write_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_checklist_template_item__write_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_fuel_level_monitoring__write_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__write_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_project_task_service__write_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_register_vehicle__write_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_repair_appointment__write_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_repair_appointment_slot__write_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__write_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_brand__write_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_model__write_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_repair_dashboard__write_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_repair_service__write_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_scratch_report__write_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_service_image__write_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_service_line__write_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_spare_part__write_date
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_technician__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث بتاريخ"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid "Legend"
+msgstr "أسطورة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields.selection,name:tk_vehicle_repair.selection__job_card__type_of_service__major
+msgid "Major Service"
+msgstr "الخدمة الرئيسية"
+
+#. module: tk_vehicle_repair
+#: model:res.groups,name:tk_vehicle_repair.workshop_manager
+msgid "Manager"
+msgstr "مدير"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.brand,name:tk_vehicle_repair.vehicle_brand_7
+msgid "Mercedes Benz"
+msgstr "مرسيدس بنز"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__message_has_error
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ في تسليم الرسالة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__message_ids
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__message_ids
+msgid "Messages"
+msgstr "رسائل"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__vehicle_model_id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_register_vehicle__vehicle_model_id
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_page
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_request_order_page
+msgid "Model"
+msgstr "نموذج"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields.selection,name:tk_vehicle_repair.selection__repair_appointment__appointment_day__monday
+msgid "Monday"
+msgstr "الاثنين"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__my_activity_date_deadline
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "الموعد النهائي لنشاطي"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_checklist_template__name
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_repair_appointment__name
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_brand__name
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_model__name
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_scratch_report__name
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_service_image__name
+msgid "Name"
+msgstr "اسم"
+
+#. module: tk_vehicle_repair
+#. odoo-python
+#: code:addons/tk_vehicle_repair/models/job_card.py:0
+#: model:ir.model.fields.selection,name:tk_vehicle_repair.selection__job_card__task__a_draft
+msgid "New"
+msgstr "جديد"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__activity_date_deadline
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "الموعد النهائي للنشاط التالي"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__activity_summary
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__activity_summary
+msgid "Next Activity Summary"
+msgstr "ملخص النشاط التالي"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__activity_type_id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__activity_type_id
+msgid "Next Activity Type"
+msgstr "نوع النشاط التالي"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "No"
+msgstr "لا"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_project_task_service__note
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__note
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_service_line__note
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid "Note"
+msgstr "ملحوظة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__message_needaction_counter
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الإجراءات"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__message_has_error_counter
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الأخطاء"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,help:tk_vehicle_repair.field_job_card__message_needaction_counter
+#: model:ir.model.fields,help:tk_vehicle_repair.field_todo_checklist__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "عدد الرسائل التي تتطلب اتخاذ إجراء"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,help:tk_vehicle_repair.field_job_card__message_has_error_counter
+#: model:ir.model.fields,help:tk_vehicle_repair.field_todo_checklist__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل التي بها خطأ في التسليم"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_fuel_level_monitoring__km_reading
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "Odometer Reading"
+msgstr "قراءة عداد المسافات"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.brand,name:tk_vehicle_repair.vehicle_brand_12
+msgid "Opel"
+msgstr "أوبل"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_request_order_page
+msgid "Other Vehicle Details"
+msgstr "تفاصيل أخرى للمركبة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields.selection,name:tk_vehicle_repair.selection__job_card__service_type__paid
+msgid "Paid"
+msgstr "مدفوع"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_spare_part__product_id
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid "Part"
+msgstr "جزء"
+
+#. module: tk_vehicle_repair
+#. odoo-javascript
+#: code:addons/tk_vehicle_repair/static/src/xml/template.xml:0
+msgid "Payment Status: Paid/Due Amounts"
+msgstr "حالة الدفع: المبالغ المدفوعة/المستحقة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__phone
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_request_order_page
+msgid "Phone"
+msgstr "هاتف"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.brand,name:tk_vehicle_repair.vehicle_brand_8
+msgid "Porsche"
+msgstr "بورش"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.model,name:tk_vehicle_repair.vehicle_model_11
+msgid "Portofino"
+msgstr "بورتوفينو"
+
+#. module: tk_vehicle_repair
+#. odoo-javascript
+#: code:addons/tk_vehicle_repair/static/src/js/lib/index.js:0
+msgid "Press ENTER to toggle"
+msgstr "اضغط على ENTER للتبديل"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_technician__project_id
+msgid "Project"
+msgstr "مشروع"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_project_task_service__project_task_id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_repair_service__project_task_id
+msgid "Project Task"
+msgstr "مهمة المشروع"
+
+#. module: tk_vehicle_repair
+#: model:ir.model,name:tk_vehicle_repair.model_project_task_service
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_project_task__project_task_service_ids
+msgid "Project Task Service"
+msgstr "خدمة مهام المشروع"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.model,name:tk_vehicle_repair.vehicle_model_4
+msgid "Q5"
+msgstr "س5"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_spare_part__qty
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid "Quantity"
+msgstr "كمية"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__rating_ids
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__rating_ids
+msgid "Ratings"
+msgstr "التقييمات"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "Receiving & Delivery Date"
+msgstr "تاريخ الاستلام والتسليم"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__receiving_date
+msgid "Receiving Date"
+msgstr "تاريخ الاستلام"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "Receiving Date:"
+msgstr "تاريخ الاستلام:"
+
+#. module: tk_vehicle_repair
+#: model:res.groups,name:tk_vehicle_repair.workshop_receptionist
+msgid "Receptionist"
+msgstr "موظف استقبال"
+
+#. module: tk_vehicle_repair
+#: model:ir.model,name:tk_vehicle_repair.model_register_vehicle
+msgid "Register Vehicle"
+msgstr "تسجيل المركبة"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "Link Vehicle to Customer"
+msgstr "ربط السيارة بالعميل"
+
+#. module: tk_vehicle_repair
+#: model:ir.actions.act_window,name:tk_vehicle_repair.action_register_vehicle
+msgid "Register Vehicles"
+msgstr "تسجيل المركبات"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__register_vehicle_id
+msgid "Registered Vehicle"
+msgstr "مركبة مسجلة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__reg_no
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_register_vehicle__reg_no
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_page
+msgid "Registration Number"
+msgstr "رقم التسجيل"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_request_order_page
+msgid ""
+"Registration Number\n"
+"                                            <span class=\"form-required-vehicle\">*</span>"
+msgstr ""
+"رقم التسجيل\n"
+"                                            <span class=\"form-required-vehicle\">*</span>"
+
+#. module: tk_vehicle_repair
+#: model:ir.model,name:tk_vehicle_repair.model_repair_appointment
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_repair_appointment_slot__repair_appointment_id
+msgid "Repair Appointment"
+msgstr "موعد الإصلاح"
+
+#. module: tk_vehicle_repair
+#: model:ir.model,name:tk_vehicle_repair.model_repair_appointment_slot
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_repair_appointment__repair_appointment_slot_ids
+msgid "Repair Appointment Slot"
+msgstr "فتحة موعد الإصلاح"
+
+#. module: tk_vehicle_repair
+#: model:ir.actions.act_window,name:tk_vehicle_repair.action_repair_appointment
+#: model:ir.ui.menu,name:tk_vehicle_repair.menu_repair_appointment
+msgid "Repair Appointments"
+msgstr "مواعيد الإصلاح"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_fleet_vehicle__repair_order_count
+msgid "Repair Order Count"
+msgstr "عدد طلبات الإصلاح"
+
+#. module: tk_vehicle_repair
+#. odoo-python
+#: code:addons/tk_vehicle_repair/models/fleet_inherit.py:0
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.fleet_repair_form_view_inherit
+msgid "Repair Orders"
+msgstr "أوامر الإصلاح"
+
+#. module: tk_vehicle_repair
+#: model:ir.model,name:tk_vehicle_repair.model_project_task
+msgid "Repair Project Task"
+msgstr "مهمة مشروع الإصلاح"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_project_task__vehicle_repair_service_ids
+msgid "Repair Service"
+msgstr "خدمة الإصلاح"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.project_task_form_view
+msgid "Repair Services"
+msgstr "خدمات الإصلاح"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_search_view
+msgid "Repair Status"
+msgstr "حالة الإصلاح"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_request_order_page
+msgid "Request By"
+msgstr "الطلب بواسطة"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.project_task_form_view
+msgid "Reset"
+msgstr "إعادة ضبط"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__responsible_id
+msgid "Responsible"
+msgstr "مسؤول"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__activity_user_id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__activity_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسؤول"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "Responsible:"
+msgstr "مسؤول:"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__message_has_sms_error
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "خطأ في تسليم الرسائل القصيرة"
+
+#. module: tk_vehicle_repair
+#. odoo-python
+#: code:addons/tk_vehicle_repair/models/job_card.py:0
+#: model:ir.model,name:tk_vehicle_repair.model_sale_order
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__sale_order_id
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "Sale Order"
+msgstr "أمر البيع"
+
+#. module: tk_vehicle_repair
+#. odoo-python
+#: code:addons/tk_vehicle_repair/models/job_card.py:0
+msgid "Sale Order Value Cannot be Zero !"
+msgstr "لا يمكن أن تكون قيمة أمر البيع صفراً!"
+
+#. module: tk_vehicle_repair
+#. odoo-javascript
+#: code:addons/tk_vehicle_repair/static/src/xml/template.xml:0
+msgid "Sale Orders By Months"
+msgstr "أوامر البيع حسب الأشهر"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields.selection,name:tk_vehicle_repair.selection__repair_appointment__appointment_day__saturday
+msgid "Saturday"
+msgstr "السبت"
+
+#. module: tk_vehicle_repair
+#: model:ir.actions.report,name:tk_vehicle_repair.action_scratch_report_template
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__vehicle_scratch_report_id
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.scratch_report_template
+msgid "Scratch Report"
+msgstr "تقرير الصفر"
+
+#. module: tk_vehicle_repair
+#: model:ir.actions.act_window,name:tk_vehicle_repair.action_vehicle_scratch_report
+#: model:ir.ui.menu,name:tk_vehicle_repair.menu_scratch_report
+msgid "Scratch Reports"
+msgstr "تقارير الصفر"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.model,name:tk_vehicle_repair.vehicle_model_6
+msgid "Serie 1"
+msgstr "الدوري 1"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_project_task_service__vehicle_service_id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_repair_service__vehicle_service_id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_service_line__vehicle_service_id
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid "Service"
+msgstr "خدمة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__service_type
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_service_line__service_charge
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid "Service Charge"
+msgstr "رسوم الخدمة"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "Service Charge:"
+msgstr "رسوم الخدمة:"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "Service Details"
+msgstr "تفاصيل الخدمة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_project_task_service__service_hours
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_service_line__service_hours
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid "Service Time"
+msgstr "وقت الخدمة"
+
+#. module: tk_vehicle_repair
+#. odoo-javascript
+#: code:addons/tk_vehicle_repair/static/src/xml/template.xml:0
+#: model:ir.actions.act_window,name:tk_vehicle_repair.action_vehicle_service
+#: model:ir.ui.menu,name:tk_vehicle_repair.manu_product_vehicle_service
+msgid "Services"
+msgstr "خدمات"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_request_order_page
+msgid ""
+"Slot Booking Date\n"
+"                                            <span class=\"form-required-vehicle\">*</span>"
+msgstr ""
+"تاريخ حجز الفتحة\n"
+"                                            <span class=\"form-required-vehicle\">*</span>"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.res_config_settings_vehicle_form_view
+msgid "Slot Booking Details"
+msgstr "تفاصيل حجز الفتحة"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.res_config_settings_vehicle_form_view
+msgid "Slot booking from website"
+msgstr "حجز الموعد من الموقع الإلكتروني"
+
+#. module: tk_vehicle_repair
+#. odoo-javascript
+#: code:addons/tk_vehicle_repair/static/src/xml/template.xml:0
+#: model:ir.actions.act_window,name:tk_vehicle_repair.action_vehicle_part
+#: model:ir.ui.menu,name:tk_vehicle_repair.manu_spare_part
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "Spare Parts"
+msgstr "قطع غيار"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_repair_appointment_slot__from_time
+msgid "Starting Time"
+msgstr "وقت البدء"
+
+#. module: tk_vehicle_repair
+#: model:ir.actions.client,name:tk_vehicle_repair.action_vehicle_repair_dashboard
+msgid "Statistics"
+msgstr "إحصائيات"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__task
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_project_task_service__status
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_repair_service__status
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_service_line__status
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_page
+msgid "Status"
+msgstr "حالة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,help:tk_vehicle_repair.field_job_card__activity_state
+#: model:ir.model.fields,help:tk_vehicle_repair.field_todo_checklist__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"الحالة على أساس الأنشطة\n"
+"متأخر: لقد مر تاريخ الاستحقاق بالفعل\n"
+"اليوم: تاريخ النشاط هو اليوم\n"
+"المخطط: الأنشطة المستقبلية."
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_spare_part__sub_total
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid "Sub Total"
+msgstr "المجموع الفرعي"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_request_order_page
+msgid "Submit"
+msgstr "يُقدِّم"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields.selection,name:tk_vehicle_repair.selection__repair_appointment__appointment_day__sunday
+msgid "Sunday"
+msgstr "الأحد"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__supervisor_id
+#: model:res.groups,name:tk_vehicle_repair.workshop_supervisor
+msgid "Supervisor"
+msgstr "مشرف"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields.selection,name:tk_vehicle_repair.selection__job_card__task__c_supervisor_inspection
+msgid "Supervisor Inspection"
+msgstr "تفتيش المشرف"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__supervisor_signature
+msgid "Supervisor Signature"
+msgstr "توقيع المشرف"
+
+#. module: tk_vehicle_repair
+#. odoo-javascript
+#: code:addons/tk_vehicle_repair/static/src/xml/template.xml:0
+msgid "Supervisors"
+msgstr "المشرفين"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__task_id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_technician__task_id
+msgid "Task"
+msgstr "مهمة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__task_count
+msgid "Task Count"
+msgstr "عدد المهام"
+
+#. module: tk_vehicle_repair
+#. odoo-python
+#: code:addons/tk_vehicle_repair/wizards/vehicle_technician.py:0
+msgid "Task Details"
+msgstr "تفاصيل المهمة"
+
+#. module: tk_vehicle_repair
+#. odoo-python
+#: code:addons/tk_vehicle_repair/models/job_card.py:0
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "Tasks"
+msgstr "المهام"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__technician_id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_technician__technician_id
+#: model:res.groups,name:tk_vehicle_repair.workshop_technician
+msgid "Technician"
+msgstr "فني"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__technician_signature
+msgid "Technician Signature"
+msgstr "توقيع فني"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "Technician:"
+msgstr "فني:"
+
+#. module: tk_vehicle_repair
+#. odoo-javascript
+#: code:addons/tk_vehicle_repair/static/src/xml/template.xml:0
+msgid "Technicians"
+msgstr "الفنيين"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.brand,name:tk_vehicle_repair.vehicle_brand_9
+msgid "Tesla"
+msgstr "تسلا"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_details_ir_ui_view
+msgid "Thank You!"
+msgstr "شكرًا لك!"
+
+#. module: tk_vehicle_repair
+#. odoo-python
+#: code:addons/tk_vehicle_repair/wizards/vehicle_technician.py:0
+msgid ""
+"The assign date must be between the receiving date and the delivery date of "
+"the job card."
+msgstr ""
+"يجب أن يكون تاريخ التعيين بين تاريخ الاستلام وتاريخ التسليم"
+"بطاقة الوظيفة."
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_page
+msgid "There are currently no requests for your account."
+msgstr "لا يوجد حاليا أي طلبات لحسابك."
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields.selection,name:tk_vehicle_repair.selection__repair_appointment__appointment_day__thursday
+msgid "Thursday"
+msgstr "يوم الخميس"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_checklist_template_item__name
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_fuel_level_monitoring__title
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_repair_appointment_slot__title
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__title
+msgid "Title"
+msgstr "عنوان"
+
+#. module: tk_vehicle_repair
+#. odoo-javascript
+#: code:addons/tk_vehicle_repair/static/src/js/lib/index.js:0
+msgid "To %1"
+msgstr "To %1"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields.selection,name:tk_vehicle_repair.selection__project_task_service__status__to_do
+#: model:ir.model.fields.selection,name:tk_vehicle_repair.selection__vehicle_repair_service__status__to_do
+#: model:ir.model.fields.selection,name:tk_vehicle_repair.selection__vehicle_service_line__status__to_do
+msgid "To Do"
+msgstr "للقيام"
+
+#. module: tk_vehicle_repair
+#: model:ir.model,name:tk_vehicle_repair.model_todo_checklist
+msgid "To do check List"
+msgstr "للقيام بقائمة التحقق"
+
+#. module: tk_vehicle_repair
+#. odoo-javascript
+#: code:addons/tk_vehicle_repair/static/src/xml/template.xml:0
+msgid "Top Five Vehicle Services"
+msgstr "أفضل خمس خدمات للمركبات"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__total
+msgid "Total"
+msgstr "المجموع"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "Total Estimations"
+msgstr "إجمالي التقديرات"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__total_spare_part_price
+msgid "Total Part Price"
+msgstr "إجمالي سعر الجزء"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid "Total Part Price:"
+msgstr "إجمالي سعر القطعة:"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__total_sale_amount
+msgid "Total Sale Amount"
+msgstr "إجمالي مبلغ البيع"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__total_charge
+msgid "Total Service Charge"
+msgstr "إجمالي رسوم الخدمة"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid "Total Service Charge:"
+msgstr "إجمالي رسوم الخدمة:"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid "Total:"
+msgstr "المجموع:"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.brand,name:tk_vehicle_repair.vehicle_brand_10
+msgid "Toyota"
+msgstr "تويوتا"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields.selection,name:tk_vehicle_repair.selection__repair_appointment__appointment_day__tuesday
+msgid "Tuesday"
+msgstr "يوم الثلاثاء"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__type_of_service
+msgid "Type of Service"
+msgstr "نوع الخدمة"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "Type of Service:"
+msgstr "نوع الخدمة:"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,help:tk_vehicle_repair.field_job_card__activity_exception_decoration
+#: model:ir.model.fields,help:tk_vehicle_repair.field_todo_checklist__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "نوع نشاط الاستثناء المسجل."
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_spare_part__unit_price
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_information_page
+msgid "Unit Price"
+msgstr "سعر الوحدة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_fleet_vehicle__vin_no
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__vin_no
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_register_vehicle__vin_no
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_request_order_page
+msgid "VIN Number"
+msgstr "رقم VIN"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_register_vehicle__vehicle_brand_id
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_page
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_request_order_page
+msgid "Vehicle"
+msgstr "عربة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model,name:tk_vehicle_repair.model_vehicle_brand
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_model__vehicle_brand_id
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_vehicle_scratch_report__vehicle_brand_id
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.register_vehicle_search_view
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.vehicle_scratch_report_search_view
+msgid "Vehicle Brand"
+msgstr "ماركة السيارة"
+
+#. module: tk_vehicle_repair
+#: model:ir.actions.act_window,name:tk_vehicle_repair.action_vehicle_brand
+#: model:ir.ui.menu,name:tk_vehicle_repair.menu_vehicle_brand
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_search_view
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.vehicle_model_search_view
+msgid "Vehicle Brands"
+msgstr "ماركات المركبات"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__todo_checklist_ids
+msgid "Vehicle Checklist"
+msgstr "قائمة مراجعة المركبات"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "Vehicle Checklists"
+msgstr "قوائم مراجعة المركبات"
+
+#. module: tk_vehicle_repair
+#: model:ir.model,name:tk_vehicle_repair.model_res_config_settings
+msgid "Vehicle Config Setting"
+msgstr "إعداد تكوين السيارة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model,name:tk_vehicle_repair.model_res_partner
+msgid "Vehicle Customer"
+msgstr "عميل المركبة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__vehicle_details
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.vehicle_scratch_report_form_view
+msgid "Vehicle Details"
+msgstr "تفاصيل المركبة"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid ""
+"Vehicle Details\n"
+"                                            <br/>\n"
+"                                            Vehicle:"
+msgstr ""
+"تفاصيل المركبة\n"
+"                                            <br/>\n"
+"                                            عربة:"
+
+#. module: tk_vehicle_repair
+#: model:ir.model,name:tk_vehicle_repair.model_job_card
+msgid "Vehicle Job Card"
+msgstr "بطاقة عمل المركبة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model,name:tk_vehicle_repair.model_vehicle_model
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.register_vehicle_search_view
+msgid "Vehicle Model"
+msgstr "طراز السيارة"
+
+#. module: tk_vehicle_repair
+#: model:ir.actions.act_window,name:tk_vehicle_repair.action_vehicle_model
+#: model:ir.ui.menu,name:tk_vehicle_repair.menu_vehicle_model
+msgid "Vehicle Models"
+msgstr "نماذج المركبات"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_fleet_vehicle__vehicle_brand_id
+msgid "Vehicle Name"
+msgstr "اسم المركبة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__vehicle_spare_part_ids
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_product_product__is_vehicle_part
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_product_template__is_vehicle_part
+msgid "Vehicle Part"
+msgstr "جزء المركبة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model,name:tk_vehicle_repair.model_product_product
+msgid "Vehicle Product"
+msgstr "منتج المركبة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model,name:tk_vehicle_repair.model_product_template
+msgid "Vehicle Product Template"
+msgstr "قالب منتج السيارة"
+
+#. module: tk_vehicle_repair
+#: model:ir.module.category,name:tk_vehicle_repair.module_vehicle_repair
+#: model:ir.ui.menu,name:tk_vehicle_repair.main_menu_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.res_config_settings_vehicle_form_view
+msgid "Vehicle Repair"
+msgstr "إصلاح المركبات"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_calendar_view
+msgid "Vehicle Repair Calendar"
+msgstr "تقويم إصلاح المركبات"
+
+#. module: tk_vehicle_repair
+#: model:ir.model,name:tk_vehicle_repair.model_vehicle_repair_dashboard
+msgid "Vehicle Repair Dashboard"
+msgstr "لوحة إصلاح السيارة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model,name:tk_vehicle_repair.model_account_move
+msgid "Vehicle Repair Invoice"
+msgstr "فاتورة إصلاح المركبة"
+
+#. module: tk_vehicle_repair
+#: model:mail.template,name:tk_vehicle_repair.vehicle_repair_mail_template
+msgid "Vehicle Repair Mail Template"
+msgstr "نموذج بريد إصلاح المركبات"
+
+#. module: tk_vehicle_repair
+#: model:ir.model,name:tk_vehicle_repair.model_vehicle_repair_service
+msgid "Vehicle Repair Service"
+msgstr "خدمة إصلاح المركبات"
+
+#. module: tk_vehicle_repair
+#: model:ir.model,name:tk_vehicle_repair.model_vehicle_scratch_report
+msgid "Vehicle Scratch Report"
+msgstr "تقرير خدش السيارة"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_product_product__is_vehicle_service
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_product_template__is_vehicle_service
+msgid "Vehicle Service"
+msgstr "خدمة المركبات"
+
+#. module: tk_vehicle_repair
+#: model:ir.model,name:tk_vehicle_repair.model_vehicle_service_image
+msgid "Vehicle Service Image"
+msgstr "صورة خدمة المركبات"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__vehicle_service_image_ids
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "Vehicle Service Images"
+msgstr "صور خدمة المركبات"
+
+#. module: tk_vehicle_repair
+#: model:ir.model,name:tk_vehicle_repair.model_vehicle_service_line
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_project_task_service__vehicle_service_line_id
+msgid "Vehicle Service Line"
+msgstr "خط خدمة المركبات"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__vehicle_service_line_ids
+#: model:product.template,name:tk_vehicle_repair.vehicle_service_charge_product_template
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "Vehicle Services"
+msgstr "خدمات المركبات"
+
+#. module: tk_vehicle_repair
+#: model:ir.model,name:tk_vehicle_repair.model_vehicle_spare_part
+msgid "Vehicle Spare part"
+msgstr "قطع غيار المركبات"
+
+#. module: tk_vehicle_repair
+#: model:ir.model,name:tk_vehicle_repair.model_vehicle_technician
+msgid "Vehicle Technician"
+msgstr "فني مركبات"
+
+#. module: tk_vehicle_repair
+#. odoo-python
+#: code:addons/tk_vehicle_repair/models/res_partner_inherit.py:0
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_res_partner__vehicle_count
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_res_users__vehicle_count
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.vehicle_customer_form_view
+msgid "Vehicles"
+msgstr "المركبات"
+
+#. module: tk_vehicle_repair
+#: model:vehicle.brand,name:tk_vehicle_repair.vehicle_brand_11
+msgid "Volkswagen"
+msgstr "فولكس فاجن"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__website_message_ids
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_todo_checklist__website_message_ids
+msgid "Website Messages"
+msgstr "رسائل الموقع"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_job_card__is_website_order
+msgid "Website Repair Order"
+msgstr "أمر إصلاح الموقع"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,field_description:tk_vehicle_repair.field_res_config_settings__website_slot_booking
+msgid "Website Slot Booking"
+msgstr "حجز فتحة الموقع"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields,help:tk_vehicle_repair.field_job_card__website_message_ids
+#: model:ir.model.fields,help:tk_vehicle_repair.field_todo_checklist__website_message_ids
+msgid "Website communication history"
+msgstr "تاريخ اتصالات الموقع"
+
+#. module: tk_vehicle_repair
+#: model:ir.model.fields.selection,name:tk_vehicle_repair.selection__repair_appointment__appointment_day__wednesday
+msgid "Wednesday"
+msgstr "الأربعاء"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_report_template
+msgid "Yes"
+msgstr "نعم"
+
+#. module: tk_vehicle_repair
+#. odoo-python
+#: code:addons/tk_vehicle_repair/models/job_card.py:0
+msgid "You cannot delete the completed order."
+msgstr "لا يمكنك حذف الطلب المكتمل."
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_details_ir_ui_view
+msgid ""
+"Your Job Card request\n"
+"                                                <br/>"
+msgstr ""
+"طلب بطاقة العمل الخاصة بك\n"
+"                                                <br/>"
+
+#. module: tk_vehicle_repair
+#: model:mail.template,subject:tk_vehicle_repair.vehicle_repair_mail_template
+msgid "Your Vehicle Has Been Repaired – Ready for Pickup!"
+msgstr "لقد تم إصلاح سيارتك - جاهزة للاستلام!"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.vehicle_model_form_view
+msgid "e.g. Class A.."
+msgstr "على سبيل المثال فئة أ.."
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.vehicle_brand_form_view
+msgid "e.g. Mercedes Benz.."
+msgstr "على سبيل المثال مرسيدس بنز.."
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "e.g. Name"
+msgstr "على سبيل المثال اسم"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.repair_appointment_slot_form_view
+msgid "e.g. Title"
+msgstr "على سبيل المثال عنوان"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.checklist_template_form_view
+msgid "e.g.Template"
+msgstr "على سبيل المثال Template"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "e.g.Title.."
+msgstr "على سبيل المثال العنوان.."
+
+#. module: tk_vehicle_repair
+#: model:vehicle.model,name:tk_vehicle_repair.vehicle_model_8
+msgid "i3"
+msgstr "i3"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "service_charge"
+msgstr "service_charge"
+
+#. module: tk_vehicle_repair
+#: model_terms:ir.ui.view,arch_db:tk_vehicle_repair.job_card_form_view
+msgid "sub_total"
+msgstr "sub_total"
+
+#. module: tk_vehicle_repair
+#. odoo-javascript
+#: code:addons/tk_vehicle_repair/static/src/xml/template.xml:0
+msgid "users"
+msgstr "users"

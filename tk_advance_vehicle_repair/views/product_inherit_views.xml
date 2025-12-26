@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!--Product-->
+        <record id="vehicle_spare_part_form_view" model="ir.ui.view">
+            <field name="name">vehicle.spare.part.form.view</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position='after'>
+                    <field name="color" widget="color_picker"/>
+                </xpath>
+                <xpath expr="//div[@name='options']" position="inside">
+                    <span class="d-inline-block" invisible="type != 'consu'">
+                        <field name="is_vehicle_part"/>
+                        <label for="is_vehicle_part"/>
+                    </span>
+                </xpath>
+            </field>
+        </record>
+        <record id="action_vehicle_spare_parts_product" model="ir.actions.act_window">
+            <field name="name">Spare Parts</field>
+            <field name="res_model">product.product</field>
+            <field name="domain">[('is_vehicle_part', '=', True)]</field>
+            <field name="context">{'default_is_vehicle_part': True, 'default_is_storable': True}</field>
+            <field name="view_mode">kanban,list,form</field>
+        </record>
+
+        <!--Product template-->
+        <record id="vehicle_spare_part_product_template_form_view" model="ir.ui.view">
+            <field name="name">vehicle.spare.part.product.template.form.view</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position='after'>
+                    <field name="color" widget="color_picker"/>
+                </xpath>
+                <xpath expr="//div[@name='options']" position="inside">
+                    <span class="d-inline-block" invisible="type != 'consu'">
+                        <field name="is_vehicle_part"/>
+                        <label for="is_vehicle_part"/>
+                    </span>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="action_vehicle_spare_parts_product_template" model="ir.actions.act_window">
+            <field name="name">Spare Parts</field>
+            <field name="res_model">product.template</field>
+            <field name="domain">[('is_vehicle_part', '=', True)]</field>
+            <field name="context">{'default_is_vehicle_part': True, 'default_is_storable': True}</field>
+            <field name="view_mode">kanban,list,form</field>
+        </record>
+    </data>
+</odoo>
+

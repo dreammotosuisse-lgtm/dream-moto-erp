@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="menu_web_vehicle_booking" model="website.menu">
+            <field name="name">Booking Request</field>
+            <field name="url">/vehicle/booking</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">11</field>
+        </record>
+    </data>
+</odoo>
